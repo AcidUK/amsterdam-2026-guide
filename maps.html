@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amsterdam — Google Maps setup</title>
+<style>
+ body{background:#0d1117;color:#e6edf3;font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+ .w{max-width:920px;margin:0 auto;padding:40px 20px 80px}
+ h1{font-size:clamp(24px,4vw,34px);letter-spacing:-.02em}
+ h1 span{background:linear-gradient(120deg,#6fb3d2,#7cc47f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+ p.sub{color:#8d9bad;margin-top:8px}
+ h2{font-size:19px;margin:38px 0 10px}
+ .box{background:#1b232d;border:1px solid #242e3a;border-left:3px solid #6fb3d2;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:14.5px;color:#c6d3df}
+ .box ol,.box ul{margin:8px 0 0 20px} .box li{margin:6px 0}
+ .box a, .lnk{color:#7fc4e8}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px}
+ .card{background:#151b23;border:1px solid #242e3a;border-radius:14px;padding:14px 16px}
+ .card h4{font-size:15.5px} .where{font-size:12.5px;color:#8d9bad;margin:3px 0 8px}
+ .stops{margin:0 0 10px 18px;font-size:13.5px;color:#b9c6d3} .stops li{margin:3px 0}
+ .lnk{font-size:12.5px;text-decoration:none}
+ code{background:#1f2937;padding:1px 6px;border-radius:5px;font-size:13px}
+</style></head><body><div class="w">
+<h1>Amsterdam <span>— into your Google Maps</span></h1>
+<p class="sub">Two ways to get all 70+ pins onto your phone. The first is the real thing; the second works straight away with no account.</p>
+
+<h2>1. The proper annotated map (Google My Maps) — 4 taps</h2>
+<div class="box">
+  <b>Why you have to do this bit:</b> a My Map lives inside a Google account, so it can't be created for you from outside — that's the bit that blocked us last time.
+  <ol>
+    <li>Open <a href="https://mymaps.google.com/" target="_blank" rel="noopener">mymaps.google.com</a> on a laptop or phone, signed in.</li>
+    <li><b>Create a new map</b> → <b>Import</b> (under the first layer) → <b>Upload</b> → choose
+        <code>amsterdam-places.kml</code> — download it here: <a href="amsterdam-places.kml">amsterdam-places.kml</a></li>
+    <li>It arrives as layers named by category (Your hotel, Restaurants, Bars, Museums…); if Maps flattens them into one, each pin still keeps its own icon and its notes. Nothing to place by hand.</li>
+    <li><b>Share</b> → change "Private" to <b>"Anyone with the link"</b> → copy the link into the group chat.</li>
+  </ol>
+  On a phone, open that share link with Google Maps installed — it opens in the Maps app, and the map appears later under <b>Saved → Maps</b> so you don't need the link again.
+</div>
+
+<h2>2. Routes that open in the Maps app right now</h2>
+<div class="box">
+  No account needed, and each link is shareable in WhatsApp. Tap on the phone and it opens the Google Maps app with every stop named on the map and in the list.
+  <br><span style="color:#8d9bad;font-size:13px">Google caps a single route at nine stops, so a city's-worth of pins has to be split — that's what these are.</span>
+</div>
+<div class="grid"><article class="card">
+  <h4>Friday night — Jordaan crawl</h4>
+  <div class="where">Hotel → ferry → Centrum → Jordaan → back</div>
+  <ol class="stops"><li>In de Wildeman</li><li>Café &#x27;t Smalle</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20Amsterdam%20North%20Riverside%2C%20Motorkade%201%2C%20Amsterdam&amp;destination=Caf%C3%A9%20Chris%2C%20Bloemstraat%2042%2C%20Amsterdam&amp;waypoints=In%20de%20Wildeman%2C%20Kolksteeg%203%2C%20Amsterdam|Caf%C3%A9%20%27t%20Smalle%2C%20Egelantiersgracht%2012%2C%20Amsterdam&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Saturday daytime — Jordaan markets to Noord street art</h4>
+  <div class="where">Ferry over, markets, then NDSM on the F4</div>
+  <ol class="stops"><li>Noordermarkt</li><li>Lindengracht</li><li>Amsterdam Centraal</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20Amsterdam%20North%20Riverside%2C%20Motorkade%201%2C%20Amsterdam&amp;destination=STRAAT%20Museum%2C%20NDSM-Plein%2021%2C%20Amsterdam&amp;waypoints=Noordermarkt%2C%20Amsterdam|Lindengracht%2C%20Amsterdam|Amsterdam%20Centraal&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Saturday night — De Pijp dinner and cocktails</h4>
+  <div class="where">Bazar on Albert Cuyp, then Door 74</div>
+  <ol class="stops"><li>Bazar</li><li>Café Hoppe</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20Amsterdam%20North%20Riverside%2C%20Motorkade%201%2C%20Amsterdam&amp;destination=Door%2074%2C%20Reguliersdwarsstraat%2074%2C%20Amsterdam&amp;waypoints=Bazar%2C%20Albert%20Cuypstraat%20182%2C%20Amsterdam|Caf%C3%A9%20Hoppe%2C%20Spui%2018%2C%20Amsterdam&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Sunday — small museums and jenever, then out</h4>
+  <div class="where">Rembrandthuis, Fockink, back for the airport</div>
+  <ol class="stops"><li>Museum Rembrandthuis</li><li>Amsterdam Centraal</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20Amsterdam%20North%20Riverside%2C%20Motorkade%201%2C%20Amsterdam&amp;destination=Wynand%20Fockink%2C%20Pijlsteeg%2031%2C%20Amsterdam&amp;waypoints=Museum%20Rembrandthuis%2C%20Jodenbreestraat%204%2C%20Amsterdam|Amsterdam%20Centraal&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Walk-in dinner cluster — Centrum</h4>
+  <div class="where">Thai, Chinese and the jenever bars, all within 6 minutes</div>
+  <ol class="stops"><li>Bird Thai</li><li>Nam Kee</li><li>In de Wildeman</li><li>Wynand Fockink</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Amsterdam%20Centraal&amp;destination=Caf%C3%A9%20Chris%2C%20Bloemstraat%2042%2C%20Amsterdam&amp;waypoints=Bird%20Thai%2C%20Zeedijk%2072%2C%20Amsterdam|Nam%20Kee%2C%20Zeedijk%20111%2C%20Amsterdam|In%20de%20Wildeman%2C%20Kolksteeg%203%2C%20Amsterdam|Wynand%20Fockink%2C%20Pijlsteeg%2031%2C%20Amsterdam&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Walk-in dinner cluster — De Pijp</h4>
+  <div class="where">Bazar, falafel, Wijmpje Beukers, Renato&#x27;s</div>
+  <ol class="stops"><li>Bazar</li><li>Sonny</li><li>Albert Cuypstraat</li><li>Renato&#x27;s</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Amsterdam%20Centraal&amp;destination=Wijmpje%20Beukers%2C%20Karel%20du%20Jardinstraat%2047%2C%20Amsterdam&amp;waypoints=Bazar%2C%20Albert%20Cuypstraat%20182%2C%20Amsterdam|Sonny%2C%20Eerste%20van%20der%20Helststraat%2043%2C%20Amsterdam|Albert%20Cuypstraat%2C%20Amsterdam|Renato%27s%2C%20Karel%20du%20Jardinstraat%2032%2C%20Amsterdam&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+<article class="card">
+  <h4>Noord on foot from the hotel</h4>
+  <div class="where">Brewery, pizza, market and the waterside</div>
+  <ol class="stops"><li>Oedipus Taproom</li><li>Il Pecorino</li><li>Van der Pekstraat</li></ol>
+  <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20Express%20Amsterdam%20North%20Riverside%2C%20Motorkade%201%2C%20Amsterdam&amp;destination=Caf%C3%A9%20de%20Ceuvel%2C%20Korte%20Papaverweg%204%2C%20Amsterdam&amp;waypoints=Oedipus%20Taproom%2C%20Schaafstraat%2021%2C%20Amsterdam|Il%20Pecorino%2C%20Van%20der%20Pekplein%2011%2C%20Amsterdam|Van%20der%20Pekstraat%2C%20Amsterdam&amp;travelmode=walking" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
+</article>
+</div>
+
+<h2>3. If you'd rather not import anything</h2>
+<div class="box">
+  Every pin in the main guide already opens the Maps app on the right place — the 📍/Map ↗ link on each card. Slower than a My Map, but it never breaks and it needs no account.
+</div>
+</div></body></html>

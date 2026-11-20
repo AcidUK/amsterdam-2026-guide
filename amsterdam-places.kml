@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Amsterdam 20-22 Nov 2026 - 7 men</name>
+  <description>Base: Holiday Inn Express North Riverside, Motorkade 1. Walk-in restaurants with vegetarian options, bars, museums and sights. Imported from the trip guide of 19 Nov 2026.</description>
+  <Style id="eat-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/orange-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="veg-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="it-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="take-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="beer-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/orange-square.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="cocktail-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="brown-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="museum-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="exp-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/blu-square.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="sight-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-circle.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="trip-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/grn-square.png</href></Icon></IconStyle>
+  </Style>
+  <Style id="hotel-style">
+    <IconStyle><scale>1.1</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/red-square.png</href></Icon></IconStyle>
+  </Style>
+  <Folder>
+    <name>1 Restaurants - walk in</name>
+    <Placemark>
+      <name>Bird Thai</name>
+      <description><![CDATA[<b>Bird Thai</b><br/>Centrum · Zeedijk 72-74<br/>Zeedijk institution on the edge of Chinatown — a proper sit-down room plus a snackbar across the street. No booking culture, you queue or you don&#x27;t get in, and the queue moves.<br/><b>Veg:</b> Tahoe pad ped is the vegetarian version of their signature kai pad ped; vegetarian mains around €19.<br/><a href="https://www.google.com/maps/search/?api=1&query=Bird+Thai,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.900546,52.374588,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Nam Kee</name>
+      <description><![CDATA[<b>Nam Kee</b><br/>Centrum · Zeedijk 111<br/>Cantonese roast house that&#x27;s been on the Zeedijk forever. Bright lights, fast service, big tables — ideal for seven hungry men who don&#x27;t want a two-hour dinner.<br/><b>Veg:</b> Ask for the tofu and vegetable dishes off the Chinese menu rather than the tourist card.<br/><a href="https://www.google.com/maps/search/?api=1&query=Nam+Kee,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.900321,52.373715,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bazar</name>
+      <description><![CDATA[<b>Bazar</b><br/>De Pijp · Albert Cuypstraat 182<br/>Turkish/Moroccan/Persian in a converted church on Albert Cuyp market. Enormous, tolerant of walk-in groups, and mid-priced — this is the safe bet for seven on a Saturday night.<br/><b>Veg:</b> Vegetarian dishes are a real part of the menu, not an afterthought — mosamma of aubergine, potato, tofu, cheese and hazelnuts; tepsi börek with feta.<br/><a href="https://www.google.com/maps/search/?api=1&query=Bazar,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.895021,52.355851,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Cannibale Royale</name>
+      <description><![CDATA[<b>Cannibale Royale</b><br/>Centrum · Handboogstraat 17A<br/>Charcoal-grill steak brasserie — bavette, tomahawk, ribs, good chips. The point is that they&#x27;re open late and take walk-ins; you might wait at the bar on a Saturday.<br/><b>Veg:</b> Meat-led. There are a couple of non-meat plates (chips, salads, a veg main) but a vegetarian would be picking around the edges — go here when the veggies are happy with sides and beer.<br/><a href="https://www.google.com/maps/search/?api=1&query=Cannibale+Royale,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.890326,52.367994,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café-Restaurant Amsterdam</name>
+      <description><![CDATA[<b>Café-Restaurant Amsterdam</b><br/>Westerpark · Watertorenplein 6<br/>French-ish brasserie in a former waterworks engine room near Westerpark: high ceilings, long bar, hundreds of covers, no reservation system worth the name. Kitchen runs to 22:00, and the bar stays open to 00:00 (01:00 Fri/Sat).<br/><b>Veg:</b> One of the best vegetarian ratios in the city — roughly 33 vegetarian and 16 vegan dishes on the menu.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café-Restaurant+Amsterdam,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.868214,52.384220,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Gossler &amp; Florin</name>
+      <description><![CDATA[<b>Gossler &amp; Florin</b><br/>Jordaan · Lindengracht 90<br/>Jordaan brasserie that explicitly keeps room for spontaneous walk-ins. Straightforward menu, professional staff, comfortable rather than trendy — good for a mixed group where nobody wants a &#x27;concept&#x27;.<br/><b>Veg:</b> Vegetarian starters and a pasta/vegetable main; ask what&#x27;s off-menu.<br/><a href="https://www.google.com/maps/search/?api=1&query=Gossler+&amp;+Florin,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.885665,52.380517,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>De Tros</name>
+      <description><![CDATA[<b>De Tros</b><br/>Oost · Linnaeusstraat 63H<br/>The Oost neighbourhood café everyone wants: French-Asian cooking, natural wine, bar seats, terrace. Walk-ins are standard; if they&#x27;re full, their sister place Turbo is next door.<br/><b>Veg:</b> Enoki tempura, vegetable plates off the changing menu — the card changes often, so ask.<br/><a href="https://www.google.com/maps/search/?api=1&query=De+Tros,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.925408,52.360460,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Wijmpje Beukers</name>
+      <description><![CDATA[<b>Wijmpje Beukers</b><br/>De Pijp · Karel du Jardinstraat 47<br/>The restaurant that made walk-ins respectable in Amsterdam, and still does it. Short weekly menu, good wine, cheerful staff. Wait with a glass if there&#x27;s no table — it&#x27;s rarely long.<br/><b>Veg:</b> Menu changes weekly; there is normally a vegetarian plate and a good cheese/veg starter. Bread with miso butter and ginger aioli is the fixture.<br/><a href="https://www.google.com/maps/search/?api=1&query=Wijmpje+Beukers,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.895433,52.351526,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café Binnenvisser</name>
+      <description><![CDATA[<b>Café Binnenvisser</b><br/>Oud-West · Bilderdijkstraat 36<br/>Bar-first French cooking in Oud-West — you eat at the bar and watch the pass. Beautiful plates, good music, natural wine.<br/><b>Veg:</b> Note the group thing: walk-ins are for up to six; seven of you should email ahead or split 4+3 at the bar. Vegetarian plates are on the daily menu.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+Binnenvisser,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.870404,52.371521,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pepito</name>
+      <description><![CDATA[<b>Pepito</b><br/>Oud-West · Eerste Constantijn Huygensstraat 21<br/>Buzzy Spanish tapas room near the Vondelpark end of Oud-West. No reservations — you leave a name, go for a drink nearby, and come back.<br/><b>Veg:</b> Tapas is the easiest format for mixed diets in the city: tortilla, padron peppers, aubergine, tortilla-esque plates, pan con tomate.<br/><a href="https://www.google.com/maps/search/?api=1&query=Pepito,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.874257,52.364726,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>SmaaQt</name>
+      <description><![CDATA[<b>SmaaQt</b><br/>Noord · Van der Pekstraat 79<br/>The best proper restaurant within walking distance of your hotel — a neighbourhood bistro on Van der Pekstraat, 14 minutes on foot. Reasonable prices, no fuss.<br/><b>Veg:</b> Vegetarian dish on the menu; it&#x27;s a small kitchen so ask when you sit down.<br/><a href="https://www.google.com/maps/search/?api=1&query=SmaaQt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.909771,52.389375,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Il Pecorino</name>
+      <description><![CDATA[<b>Il Pecorino</b><br/>Noord · Van der Pekplein 11<br/>Pizza and pasta on Van der Pekplein, 13 minutes from the hotel — the &#x27;we can&#x27;t be bothered to cross the river&#x27; dinner. Pizzas are the thing to order.<br/><b>Veg:</b> Margherita, ortolana, quattro formaggi — standard Italian vegetarian coverage.<br/><a href="https://www.google.com/maps/search/?api=1&query=Il+Pecorino,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.908660,52.386809,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Spaghetteria</name>
+      <description><![CDATA[<b>Spaghetteria</b><br/>Citywide · 8 branches (pin = Albert Cuyp)<br/>Six or so pasta dishes, fresh, organic flour, short wine list, scroppino. The reliable cheap dinner when a plan collapses. Walk-ins always welcome even where they now take bookings.<br/><b>Veg:</b> Every branch has vegetarian pasta options — the menu is built as meat / fish / vegetarian variants of the same six dishes.<br/><a href="https://www.google.com/maps/search/?api=1&query=Spaghetteria,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#eat-style</styleUrl>
+      <Point><coordinates>4.891750,52.356214,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>2 Vegetarian restaurants</name>
+    <Placemark>
+      <name>De Waaghals</name>
+      <description><![CDATA[<b>De Waaghals</b><br/>De Pijp · Frans Halsstraat 29<br/>Amsterdam&#x27;s benchmark vegetarian restaurant — no meat, no fish anywhere on the menu, Dutch-seasonal cooking rather than fake meat.<br/><b>Veg:</b> Entire menu is vegetarian (a cheese platter is the only non-plant item).<br/><a href="https://www.google.com/maps/search/?api=1&query=De+Waaghals,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>5.039097,52.311188,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Golden Temple</name>
+      <description><![CDATA[<b>Golden Temple</b><br/>Centrum · Utrechtsestraat 126<br/>The oldest vegetarian restaurant in the centre, running since 1973. Relaxed room, mezze-style plates, upstairs mezzanine that seats groups.<br/><b>Veg:</b> Fully vegetarian; not fully vegan, so egg appears in some dishes — ask.<br/><a href="https://www.google.com/maps/search/?api=1&query=Golden+Temple,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>4.899135,52.361352,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Meatless District</name>
+      <description><![CDATA[<b>Meatless District</b><br/>Oud-West · Bilderdijkstraat 65-67<br/>Dedicated vegan café from breakfast to dinner — jackfruit &#x27;pulled pork&#x27;, cashew cheese, proper portions.<br/><b>Veg:</b> 100% plant-based, no questions needed.<br/><a href="https://www.google.com/maps/search/?api=1&query=Meatless+District,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>4.870715,52.370058,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Flore</name>
+      <description><![CDATA[<b>Flore</b><br/>Oost · Weesperzijde 135<br/>All-day vegan café on the Amstel with an organic, farm-sourced menu. Weekend brunch is the draw.<br/><b>Veg:</b> 100% plant-based.<br/><a href="https://www.google.com/maps/search/?api=1&query=Flore,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>4.912683,52.349578,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café Beurre</name>
+      <description><![CDATA[<b>Café Beurre</b><br/>Staatsliedenbuurt · Van Limburg Stirumstraat 115<br/>New-ish Staatsliedenbuurt café serving entirely vegetarian plates, built around butter and a serious wine list. Small room, small terrace, walk in and hope.<br/><b>Veg:</b> The whole menu is vegetarian.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+Beurre,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>4.876298,52.383797,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>NENI Amsterdam</name>
+      <description><![CDATA[<b>NENI Amsterdam</b><br/>Westerpark · Haarlemmerweg 10<br/>Big Israeli-influenced room at Westerpark, mezze built for sharing, meat dishes alongside so the whole group is covered.<br/><b>Veg:</b> Most of the mezze is plant-based; sabich contains egg.<br/><a href="https://www.google.com/maps/search/?api=1&query=NENI+Amsterdam,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#veg-style</styleUrl>
+      <Point><coordinates>4.875262,52.386753,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>3 Italian</name>
+    <Placemark>
+      <name>La Perla</name>
+      <description><![CDATA[<b>La Perla</b><br/>Jordaan · Tweede Tuindwarsstraat 53<br/>The anchor of the Jordaan&#x27;s &#x27;Little Italy&#x27; street — charred Neapolitan pies, pasta, sandwiches, takeaway slices. Lively, not hushed.<br/><b>Veg:</b> Margherita, marinara, ortolana, funghi.<br/><a href="https://www.google.com/maps/search/?api=1&query=La+Perla,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.881986,52.377063,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>nNea Pizza</name>
+      <description><![CDATA[<b>nNea Pizza</b><br/>Oud-West · Bilderdijkstraat 92<br/>Ranked 7th in Europe by 50 Top Pizza in 2026. The one table on this whole guide worth booking before you fly.<br/><b>Veg:</b> Classic vegetarian toppings plus seasonal vegetable pies.<br/><a href="https://www.google.com/maps/search/?api=1&query=nNea+Pizza,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.870393,52.369442,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pazzi Jordaan</name>
+      <description><![CDATA[<b>Pazzi Jordaan</b><br/>Jordaan · Eerste Looiersdwarsstraat 4<br/>Wood-fired since 2010, small room, no reservations at all. The fallback when La Perla is heaving.<br/><b>Veg:</b> Margherita, quattro stagioni minus the ham on request, vegetable pies.<br/><a href="https://www.google.com/maps/search/?api=1&query=Pazzi+Jordaan,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.880738,52.369283,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Mangia Pizza &amp; Wine</name>
+      <description><![CDATA[<b>Mangia Pizza &amp; Wine</b><br/>Centrum · Vijzelgracht 33<br/>Properly made Neapolitan pizza in the middle of town, plus fried street-food starters and pasta so a split group is fine.<br/><b>Veg:</b> Several vegetarian pizzas and pasta.<br/><a href="https://www.google.com/maps/search/?api=1&query=Mangia+Pizza+&amp;+Wine,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.891607,52.360987,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Renato&#x27;s Pizzeria</name>
+      <description><![CDATA[<b>Renato&#x27;s Pizzeria</b><br/>De Pijp · Karel du Jardinstraat 32<br/>Old-school De Pijp pizzeria — crisp thin bases, and explicitly vegetarian, vegan and gluten-free options.<br/><b>Veg:</b> Labelled vegetarian, vegan and gluten-free choices on the menu.<br/><a href="https://www.google.com/maps/search/?api=1&query=Renato&#x27;s+Pizzeria,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.894478,52.351212,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bella Storia</name>
+      <description><![CDATA[<b>Bella Storia</b><br/>Westerpark · Bentinckstraat 26<br/>Full Italian restaurant, takeaway counter and deli beside Westerpark. The most complete meal in the Italian section.<br/><b>Veg:</b> Vegetarian antipasti, pasta and pizza.<br/><a href="https://www.google.com/maps/search/?api=1&query=Bella+Storia,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#it-style</styleUrl>
+      <Point><coordinates>4.874139,52.383797,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>4 Takeaway and markets</name>
+    <Placemark>
+      <name>Sonny Falafel</name>
+      <description><![CDATA[<b>Sonny Falafel</b><br/>De Pijp · Eerste van der Helststraat 43<br/>The De Pijp falafel benchmark — crisp, herb-heavy, good hummus and fries. Eat it walking.<br/><b>Veg:</b> Vegetarian by default.<br/><a href="https://www.google.com/maps/search/?api=1&query=Sonny+Falafel,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.893360,52.355298,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>The Lebanese Sajeria</name>
+      <description><![CDATA[<b>The Lebanese Sajeria</b><br/>Centrum · Utrechtsestraat 69<br/>Lebanese wraps and mezze to go — falafel, halloumi, chargrilled veg. Fast and cheap near Rembrandtplein.<br/><b>Veg:</b> Falafel and halloumi wraps, plus mezze.<br/><a href="https://www.google.com/maps/search/?api=1&query=The+Lebanese+Sajeria,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.898584,52.363399,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Vegan Junk Food Bar</name>
+      <description><![CDATA[<b>Vegan Junk Food Bar</b><br/>Centrum · Leidsegracht 34<br/>Burgers, loaded fries and shakes, all vegan, counter service.<br/><b>Veg:</b> Everything.<br/><a href="https://www.google.com/maps/search/?api=1&query=Vegan+Junk+Food+Bar,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.884172,52.366853,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Foodhallen</name>
+      <description><![CDATA[<b>Foodhallen</b><br/>Oud-West · Bellamyplein 51<br/>Covered food hall in a converted tram depot: fourteen stalls, grab a table, everyone eats what they want. Busy but genuinely useful in the rain.<br/><b>Veg:</b> Dim sum, pizza, sushi, and several vegetarian stalls.<br/><a href="https://www.google.com/maps/search/?api=1&query=Foodhallen,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.868333,52.366827,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Albert Cuyp Markt</name>
+      <description><![CDATA[<b>Albert Cuyp Markt</b><br/>De Pijp · Albert Cuypstraat<br/>The big De Pijp street market. Falafel €5-7, fresh juice €3-4, cheese and fruit stalls.<br/><b>Veg:</b> Falafel, juices, fruit, cheese.<br/><a href="https://www.google.com/maps/search/?api=1&query=Albert+Cuyp+Markt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.887676,52.354624,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Van der Pekmarkt</name>
+      <description><![CDATA[<b>Van der Pekmarkt</b><br/>Noord · Van der Pekstraat<br/>The Noord market 14 minutes from your hotel — produce, cheese, fish, cheap hot food, and nothing touristy about it. Check the day it runs before you walk over.<br/><b>Veg:</b> Market food: cheese, fruit, broodjes.<br/><a href="https://www.google.com/maps/search/?api=1&query=Van+der+Pekmarkt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.909742,52.388793,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Dappermarkt</name>
+      <description><![CDATA[<b>Dappermarkt</b><br/>Oost · Dapperstraat<br/>Oost&#x27;s market is better than Albert Cuyp for multicultural vegetarian street food — Turkish börek, Moroccan pastries, Indonesian tofu.<br/><b>Veg:</b> Börek with spinach or cheese, vegetable pastries.<br/><a href="https://www.google.com/maps/search/?api=1&query=Dappermarkt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#take-style</styleUrl>
+      <Point><coordinates>4.928009,52.361840,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>5 Craft beer</name>
+    <Placemark>
+      <name>Oedipus Taproom</name>
+      <description><![CDATA[<b>Oedipus Taproom</b><br/>Noord · Schaafstraat 21<br/>This is on your doorstep — 300 m, five minutes&#x27; walk. Big warehouse tap room, picnic tables, food trucks, wild beers. The obvious first-night base camp.<br/><a href="https://www.google.com/maps/search/?api=1&query=Oedipus+Taproom,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.923680,52.385225,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Brouwerij &#x27;t IJ</name>
+      <description><![CDATA[<b>Brouwerij &#x27;t IJ</b><br/>Oost · Funenkade 7<br/>Amsterdam&#x27;s original craft brewery under the De Gooyer windmill. Brewery tour Saturdays 14:30-16:30 (€10 including a beer); tap room daily.<br/><a href="https://www.google.com/maps/search/?api=1&query=Brouwerij+&#x27;t+IJ,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.926347,52.366698,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>In de Wildeman</name>
+      <description><![CDATA[<b>In de Wildeman</b><br/>Centrum · Kolksteeg 3<br/>A 1690 former distillery turned beer bar — no music, 18 taps, 200+ bottles, Belgian Trappists and Dutch micros. The purist&#x27;s choice, a minute from Dam Square.<br/><a href="https://www.google.com/maps/search/?api=1&query=In+de+Wildeman,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.895157,52.376164,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Proeflokaal Arendsnest</name>
+      <description><![CDATA[<b>Proeflokaal Arendsnest</b><br/>Centrum · Herengracht 90<br/>Only Dutch beer — 50 taps and 100+ bottles, on the Herengracht. Order a flight and work through the country in one sitting.<br/><a href="https://www.google.com/maps/search/?api=1&query=Proeflokaal+Arendsnest,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.889260,52.376709,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Brouwerij De Prael</name>
+      <description><![CDATA[<b>Brouwerij De Prael</b><br/>Centrum · Oudezijds Armsteeg 26<br/>Brewery and proeflokaal in a beautiful old Dutch interior, employing people who face barriers to work. Beer plus Dutch comfort food.<br/><a href="https://www.google.com/maps/search/?api=1&query=Brouwerij+De+Prael,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.899390,52.375572,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Brouwerij Troost Westergas</name>
+      <description><![CDATA[<b>Brouwerij Troost Westergas</b><br/>Westerpark · Pazzanistraat 27<br/>The Westergas site: brews on site, industrial-chic, decent kitchen. Pairs with Café-Restaurant Amsterdam across the park.<br/><a href="https://www.google.com/maps/search/?api=1&query=Brouwerij+Troost+Westergas,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.872816,52.386089,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Poesiat &amp; Kater</name>
+      <description><![CDATA[<b>Poesiat &amp; Kater</b><br/>Oost · Polderweg 648<br/>Reviving Amsterdam beer styles lost to industrialisation, including the resurrected Van Vollenhoven. Tasting room does food.<br/><a href="https://www.google.com/maps/search/?api=1&query=Poesiat+&amp;+Kater,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.935713,52.357651,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>BeerTemple</name>
+      <description><![CDATA[<b>BeerTemple</b><br/>Centrum · Nieuwezijds Voorburgwal 250<br/>American-leaning craft bar, ~30 drafts, 100+ bottles. The one for the IPA obsessive in the group.<br/><a href="https://www.google.com/maps/search/?api=1&query=BeerTemple,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#beer-style</styleUrl>
+      <Point><coordinates>4.890356,52.371978,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>6 Cocktail bars</name>
+    <Placemark>
+      <name>Door 74</name>
+      <description><![CDATA[<b>Door 74</b><br/>Rembrandtplein · Reguliersdwarsstraat 74<br/>Amsterdam&#x27;s original speakeasy: unmarked black door, ten seats, no menu — you describe what you like. Same-day reservations only (site or WhatsApp +31 6 34 04 51 22), groups up to 12, 21+, open to 03:00, 04:00 Fri/Sat.<br/><a href="https://www.google.com/maps/search/?api=1&query=Door+74,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.893593,52.365938,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Tales &amp; Spirits</name>
+      <description><![CDATA[<b>Tales &amp; Spirits</b><br/>Centrum · Lijnbaanssteeg 5-7<br/>Multi-storey cocktail den down a medieval alley — curios, candlelight, house &#x27;tales&#x27; plus tight classics, and a kitchen. Walk-in only, Tue-Sat 17:30-01:00.<br/><a href="https://www.google.com/maps/search/?api=1&query=Tales+&amp;+Spirits,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.891792,52.376098,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bar Oldenhof</name>
+      <description><![CDATA[<b>Bar Oldenhof</b><br/>Jordaan · Elandsgracht 84-H<br/>Wood-panelled salon, velvet seats, deep whisky shelf. Closest thing in Amsterdam to a grown-up living room. Ring ahead at peak times.<br/><a href="https://www.google.com/maps/search/?api=1&query=Bar+Oldenhof,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.880279,52.369659,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Vesper Bar</name>
+      <description><![CDATA[<b>Vesper Bar</b><br/>Jordaan · Vinkenstraat 57<br/>Tiny candlelit Jordaan bar with a changing menu. Give the bartender a flavour brief and let them steer. Walk-ins only.<br/><a href="https://www.google.com/maps/search/?api=1&query=Vesper+Bar,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.886907,52.382171,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Super Lyan</name>
+      <description><![CDATA[<b>Super Lyan</b><br/>Centrum · Nieuwezijds Voorburgwal 3<br/>Mr Lyan&#x27;s Amsterdam outpost by Centraal: beeswax Old Fashioned, low-waste thinking, stays busy past midnight. Best all-rounder for seven.<br/><a href="https://www.google.com/maps/search/?api=1&query=Super+Lyan,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.889941,52.370823,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Flying Dutchmen Cocktails</name>
+      <description><![CDATA[<b>Flying Dutchmen Cocktails</b><br/>Centrum · Singel 460<br/>A temple to classic technique on the Singel — encyclopaedic backbar, clear ice, textbook stirred drinks.<br/><a href="https://www.google.com/maps/search/?api=1&query=Flying+Dutchmen+Cocktails,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#cocktail-style</styleUrl>
+      <Point><coordinates>4.888820,52.367550,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>7 Brown cafes</name>
+    <Placemark>
+      <name>Café Chris</name>
+      <description><![CDATA[<b>Café Chris</b><br/>Jordaan · Bloemstraat 42<br/>Pouring since 1624, still a pub first and a monument second. Order a kopstootje — jenever with a beer chaser.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+Chris,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.881577,52.374266,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café &#x27;t Smalle</name>
+      <description><![CDATA[<b>Café &#x27;t Smalle</b><br/>Jordaan · Egelantiersgracht 12<br/>Wood panelling, mezzanine bar, barrels over the counter, in Pieter Hoppe&#x27;s old liqueur distillery. The canal terrace is the one.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+&#x27;t+Smalle,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.884133,52.376731,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café Hoppe</name>
+      <description><![CDATA[<b>Café Hoppe</b><br/>Centrum · Spui 18-20<br/>Amsterdam institution: sawdust floor and standing room on one side, dark panelling and a terrace on the other. Jenever for three and a half centuries.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+Hoppe,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.888577,52.368795,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café de Wetering</name>
+      <description><![CDATA[<b>Café de Wetering</b><br/>Centrum · Weteringstraat 37<br/>17th-century corner café in the Spiegelkwartier with an open fire, leather armchairs and a resident cat. The fireside option on a -2°C night.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+de+Wetering,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.889715,52.360936,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café De Oranjerie</name>
+      <description><![CDATA[<b>Café De Oranjerie</b><br/>Jordaan · Binnen Oranjestraat 15<br/>Belgian speciality beer in a high Art Deco room papered with theatre posters, plus a corner for Scrabble.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+De+Oranjerie,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.886871,52.381961,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café Slijterij Oosterling</name>
+      <description><![CDATA[<b>Café Slijterij Oosterling</b><br/>Centrum · Utrechtsestraat 140<br/>Oosterling family since 1877, building from 1735 — tiled floors, old fittings, an atmosphere usually described as eccentric and slightly haunted.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+Slijterij+Oosterling,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.899256,52.361074,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Café de Ceuvel</name>
+      <description><![CDATA[<b>Café de Ceuvel</b><br/>Noord · Korte Papaverweg 4<br/>Café on a former shipyard turned circular creative site — upcycled houseboats, waterside deck, plant-led menu. The nearest proper waterside drink to your hotel.<br/><a href="https://www.google.com/maps/search/?api=1&query=Café+de+Ceuvel,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.910758,52.393151,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pllek</name>
+      <description><![CDATA[<b>Pllek</b><br/>Noord · Tt Neveritaweg 59<br/>Built from shipping containers on a beach on the IJ, looking back at the skyline. Sunset is 16:40 — go at 16:00 and stay.<br/><a href="https://www.google.com/maps/search/?api=1&query=Pllek,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#brown-style</styleUrl>
+      <Point><coordinates>4.893098,52.399134,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>8 Museums</name>
+    <Placemark>
+      <name>Rijksmuseum</name>
+      <description><![CDATA[<b>Rijksmuseum</b><br/>Museumplein · Museumstraat 1<br/>The obvious one and still worth it. Timed slot, go early or after 15:00.<br/><a href="https://www.google.com/maps/search/?api=1&query=Rijksmuseum,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.884279,52.359663,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Van Gogh Museum</name>
+      <description><![CDATA[<b>Van Gogh Museum</b><br/>Museumplein · Museumplein 6<br/>Timed-entry only, often gone on the day — book online now.<br/><a href="https://www.google.com/maps/search/?api=1&query=Van+Gogh+Museum,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.881323,52.357925,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Moco Museum</name>
+      <description><![CDATA[<b>Moco Museum</b><br/>Museumplein · Honthorststraat 20<br/>Banksy, Warhol and immersive rooms in a townhouse on Museumplein.<br/><a href="https://www.google.com/maps/search/?api=1&query=Moco+Museum,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.881962,52.358716,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Museum Rembrandthuis</name>
+      <description><![CDATA[<b>Museum Rembrandthuis</b><br/>Centrum · Jodenbreestraat 4<br/>The actual house Rembrandt lived and worked in, with his etching studio rebuilt. Quieter than the big three.<br/><a href="https://www.google.com/maps/search/?api=1&query=Museum+Rembrandthuis,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.901250,52.369369,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Ons&#x27; Lieve Heer op Solder</name>
+      <description><![CDATA[<b>Ons&#x27; Lieve Heer op Solder</b><br/>Centrum · Oudezijds Voorburgwal 40<br/>A complete Catholic church hidden in a canal-house attic. One of the city&#x27;s oddest survivals and usually uncrowded.<br/><a href="https://www.google.com/maps/search/?api=1&query=Ons&#x27;+Lieve+Heer+op+Solder,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.899290,52.375096,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Museum Van Loon</name>
+      <description><![CDATA[<b>Museum Van Loon</b><br/>Centrum · Keizersgracht 672<br/>A canal house still furnished as a family home. The antidote to museum fatigue.<br/><a href="https://www.google.com/maps/search/?api=1&query=Museum+Van+Loon,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.893378,52.363464,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Micropia</name>
+      <description><![CDATA[<b>Micropia</b><br/>Plantage · Plantage Kerklaan 38-40<br/>The world&#x27;s first microbe museum — genuinely odd, genuinely good, and firmly indoors.<br/><a href="https://www.google.com/maps/search/?api=1&query=Micropia,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.912582,52.366962,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Het Scheepvaartmuseum</name>
+      <description><![CDATA[<b>Het Scheepvaartmuseum</b><br/>Oostelijke Eilanden · Kattenburgerplein 1<br/>National maritime museum in a former naval storehouse, with a moored East Indiaman you can board.<br/><a href="https://www.google.com/maps/search/?api=1&query=Het+Scheepvaartmuseum,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.914953,52.372005,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>STRAAT Museum</name>
+      <description><![CDATA[<b>STRAAT Museum</b><br/>Noord · NDSM-Plein 21<br/>Enormous street-art museum in an NDSM shipyard warehouse. The best single thing in Noord, and it&#x27;s indoors.<br/><a href="https://www.google.com/maps/search/?api=1&query=STRAAT+Museum,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#museum-style</styleUrl>
+      <Point><coordinates>4.895450,52.401114,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>9 Experiences and tastings</name>
+    <Placemark>
+      <name>House of Bols</name>
+      <description><![CDATA[<b>House of Bols</b><br/>Museumplein · Paulus Potterstraat 14<br/>Cocktail and genever experience next to the Van Gogh Museum, ending in a proper mirrored bar. Genuinely fun for a group of seven and it doesn&#x27;t take an afternoon.<br/><a href="https://www.google.com/maps/search/?api=1&query=House+of+Bols,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.881282,52.359043,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Wynand Fockink</name>
+      <description><![CDATA[<b>Wynand Fockink</b><br/>Centrum · Pijlsteeg 31<br/>A jenever distillery and tasting room down an alley off Dam Square since 1679. You drink standing, the glasses are filled to the brim and you bend down to the first sip. Non-negotiable Amsterdam.<br/><a href="https://www.google.com/maps/search/?api=1&query=Wynand+Fockink,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.895300,52.372320,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>De Drie Fleschjes</name>
+      <description><![CDATA[<b>De Drie Fleschjes</b><br/>Centrum · Gravenstraat 18<br/>A jenever tasting house behind the Nieuwe Kerk with barrels along the wall. Quieter than Fockink, equally old.<br/><a href="https://www.google.com/maps/search/?api=1&query=De+Drie+Fleschjes,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.892313,52.374311,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>A&#x27;DAM Lookout</name>
+      <description><![CDATA[<b>A&#x27;DAM Lookout</b><br/>Noord · Overhoeksplein 5<br/>Observation deck over the IJ plus &#x27;Over the Edge&#x27;, Europe&#x27;s highest outdoor swing. The swing is ticketed separately from the roof.<br/><a href="https://www.google.com/maps/search/?api=1&query=A&#x27;DAM+Lookout,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.902138,52.383772,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Heineken Experience</name>
+      <description><![CDATA[<b>Heineken Experience</b><br/>Zuid · Stadhouderskade 78<br/>Touristy, and the beer isn&#x27;t brewed here any more — but it&#x27;s built for groups, includes two beers and needs no planning. Fine filler on a wet afternoon.<br/><a href="https://www.google.com/maps/search/?api=1&query=Heineken+Experience,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.891784,52.357840,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Holland Casino</name>
+      <description><![CDATA[<b>Holland Casino</b><br/>Centrum · Max Euweplein 62<br/>The city&#x27;s casino on Leidseplein — open late, smart-casual, passport required. A natural end to a Saturday if the bars feel samey.<br/><a href="https://www.google.com/maps/search/?api=1&query=Holland+Casino,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.882194,52.362327,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Johan Cruijff ArenA</name>
+      <description><![CDATA[<b>Johan Cruijff ArenA</b><br/>Zuidoost · Johan Cruijff Boulevard 1<br/>Stadium tour of Ajax&#x27;s ground. Twenty minutes on the metro from Centraal — only worth it if the group actually follows football.<br/><a href="https://www.google.com/maps/search/?api=1&query=Johan+Cruijff+ArenA,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#exp-style</styleUrl>
+      <Point><coordinates>4.942843,52.314353,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>10 Sights markets walks</name>
+    <Placemark>
+      <name>ARTIS</name>
+      <description><![CDATA[<b>ARTIS</b><br/>Plantage · Plantage Kerklaan 38-40<br/>The old city zoo — compact, leafy, good if the group wants a slow afternoon rather than another museum.<br/><a href="https://www.google.com/maps/search/?api=1&query=ARTIS,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.912582,52.366962,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Free IJ ferry</name>
+      <description><![CDATA[<b>Free IJ ferry</b><br/>Noord · Behind Centraal, De Ruijterkade<br/>The ferries behind Centraal are free and take four minutes. F2 to IJplein (your stop), F3 to Buiksloterweg (runs all night), F4 to NDSM.<br/><a href="https://www.google.com/maps/search/?api=1&query=Free+IJ+ferry,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.893408,52.401083,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bloemenmarkt</name>
+      <description><![CDATA[<b>Bloemenmarkt</b><br/>Centrum · Singel<br/>The floating flower market on the Singel. Ten minutes, then move on — but everyone should see it once.<br/><a href="https://www.google.com/maps/search/?api=1&query=Bloemenmarkt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.890765,52.366931,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Vondelpark</name>
+      <description><![CDATA[<b>Vondelpark</b><br/>Zuid · Vondelpark<br/>The city&#x27;s main park. In late November it&#x27;s a brisk walk between museums, not a picnic.<br/><a href="https://www.google.com/maps/search/?api=1&query=Vondelpark,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.864119,52.357197,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Westergas</name>
+      <description><![CDATA[<b>Westergas</b><br/>Westerpark · Pazzanistraat 1<br/>The old municipal gasworks turned cultural campus: galleries, Brouwerij Troost, and Café-Restaurant Amsterdam next door.<br/><a href="https://www.google.com/maps/search/?api=1&query=Westergas,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.875352,52.386145,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Noordermarkt</name>
+      <description><![CDATA[<b>Noordermarkt</b><br/>Jordaan · Noordermarkt<br/>Saturday farmers&#x27; and vintage market by the Noorderkerk — five minutes from the Lindengracht market, so do both in one loop.<br/><a href="https://www.google.com/maps/search/?api=1&query=Noordermarkt,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#sight-style</styleUrl>
+      <Point><coordinates>4.886872,52.379954,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>11 Day trips</name>
+    <Placemark>
+      <name>Zaanse Schans</name>
+      <description><![CDATA[<b>Zaanse Schans</b><br/>Zaandam · Schansend 7<br/>Working windmills and workshops 20 minutes by train. Bus 391 needs the regional ticket — the train is easier.<br/><a href="https://www.google.com/maps/search/?api=1&query=Zaanse+Schans,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#trip-style</styleUrl>
+      <Point><coordinates>4.817976,52.475053,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Haarlem</name>
+      <description><![CDATA[<b>Haarlem</b><br/>Haarlem · Grote Markt<br/>Fifteen minutes by train and a completely different city: Grote Markt, Teylers Museum, Frans Hals, cheaper lunch.<br/><a href="https://www.google.com/maps/search/?api=1&query=Haarlem,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#trip-style</styleUrl>
+      <Point><coordinates>4.636093,52.381367,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+  <Folder>
+    <name>0 YOUR HOTEL</name>
+    <Placemark>
+      <name>Holiday Inn Express North Riverside</name>
+      <description><![CDATA[<b>Holiday Inn Express North Riverside</b><br/>Noord · Motorkade 1, 1021 JR<br/>Your base for the weekend. 9 min walk to the IJplein ferry (F2, last boat 23:50); 13 min walk to the Buiksloterweg ferry (F3), which runs 24 hours; 3 min walk to Hamerstraat bus stop (buses 34/35/38 through the IJtunnel).<br/><a href="https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Express+North+Riverside,+Amsterdam">Open in Google Maps</a>]]></description>
+      <styleUrl>#hotel-style</styleUrl>
+      <Point><coordinates>4.919575,52.384177,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+</Document>
+</kml>

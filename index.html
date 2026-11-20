@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amsterdam, 20 to 22 November 2026</title>
+<meta name="description" content="Two nights in Noord, and every restaurant, bar and museum within reach of the free IJ ferry, with the fares and the times of the last boat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<style>
+
+/* Hallmark · shape: Contents ledger, index rows · genre: editorial · theme: Editorial (deal 2/3, seed weekend-trip-guide-seven-cfc5) · redesign: full
+ * hero: Index, head and facts left, the contents ledger right · nav: masthead, wordmark and a scrolling section line · footer: colophon
+ * imagery: none, three Leaflet maps and type at scale · signature: the three times the last boat runs, set at display size on a paper well
+ * axes: light/display-condensed/chromatic-green · posture: restrained · contrast: pass · fold: pass · v2.0.0
+ * hero-review: in-thread · 3 findings (heads in the reading ink, a lede with no verb, 190px of dead band) · 3 resolved
+ * finish-review: subagent · 8 findings · 8 resolved · gap: four entries a screen against the old grid's seven, kept for the ruled rows the theme asks for
+ * single file: tokens.css and base.css inlined, no build step */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 · weakest: E, the rows risk a sameness across 78 entries; varied the row, the two-column listing and the day schedule instead of one repeated block */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(97% 0.007 86); --color-paper-2: oklch(94% 0.010 86); --color-paper-3: oklch(91% 0.012 84);
+  --color-ink: oklch(16% 0.012 280); --color-ink-2: oklch(29% 0.011 280); --color-muted: oklch(48% 0.010 75);
+  --color-rule: oklch(85% 0.009 85); --color-rule-2: oklch(64% 0.010 80);
+  --color-accent: oklch(49% 0.130 152); --color-accent-ink: oklch(98% 0.005 88); --color-focus: oklch(52% 0.135 152);
+  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif; --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 4px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 800;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 52ch; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+/* photographs: natural sat=-10 con=4 */
+[data-slot] > img { filter: saturate(0.9) contrast(1.04); }
+
+body{font-size:1.0625rem;line-height:1.55;color:var(--color-ink-2)}
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;background:var(--color-ink);color:var(--color-paper);padding:var(--space-sm) var(--space-lg);font-family:var(--font-display);font-size:var(--text-sm);z-index:var(--z-tooltip)}
+.skip:focus{position:fixed;width:auto;height:auto;clip-path:none;left:var(--space-md);top:var(--space-md);overflow:visible}
+a{text-decoration-color:var(--color-rule-2)}
+a:hover{text-decoration-color:var(--color-accent)}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:var(--z-sticky-nav);background:var(--color-paper);border-bottom:1px solid var(--color-rule-2)}
+.mast__in{display:flex;align-items:center;gap:var(--space-xl);height:72px}
+.wordmark{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 96;font-size:1.5rem;line-height:1;letter-spacing:var(--tracking-display);color:var(--color-ink);text-decoration:none;white-space:nowrap}
+.mast__nav{display:flex;gap:var(--space-lg);margin-left:auto;overflow-x:auto;scrollbar-width:none;font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12}
+.mast__nav::-webkit-scrollbar{display:none}
+.mast__nav a{flex:0 0 auto;white-space:nowrap;color:var(--color-ink-2);text-decoration:none;padding-block:var(--space-xs);border-bottom:2px solid transparent}
+.mast__nav a:hover{border-bottom-color:var(--color-accent);color:var(--color-ink)}
+
+/* hero */
+.hero{display:flex;align-items:center;min-height:calc(100svh - 72px);padding-block:var(--space-2xl)}
+.hero__in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:var(--space-2xl);align-items:end;width:100%}
+.hero h1{font-size:clamp(4rem,9.6vw,8.75rem);line-height:0.9;max-width:none;font-variation-settings:"wdth" 75,"opsz" 96}
+.hero__dates{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 96;font-size:clamp(2.5rem,5vw,4.25rem);line-height:1.02;letter-spacing:var(--tracking-display);color:var(--color-ink);margin-top:var(--space-sm)}
+.hero__line{font-family:var(--font-body);font-size:var(--text-lead);line-height:1.45;max-width:42ch;color:var(--color-ink);margin-top:var(--space-xl)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--space-2xl);border-top:1px solid var(--color-rule-2);list-style:none;padding:0}
+.facts li{padding:var(--space-sm) var(--space-md) 0 0}
+.facts li + li{border-left:1px solid var(--color-rule);padding-left:var(--space-md)}
+.facts dt{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted)}
+.facts dd{margin:var(--space-3xs) 0 0;font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 12;font-size:1.0625rem;line-height:1.2;color:var(--color-ink);font-variant-numeric:lining-nums tabular-nums}
+
+.contents{border-top:1px solid var(--color-rule-2);padding-top:var(--space-sm)}
+.contents__label{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);margin:0 0 var(--space-3xs)}
+.contents ol{list-style:none;margin:0;padding:0}
+.contents li{border-top:1px solid var(--color-rule)}
+.contents a{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-md);padding-block:var(--space-md);text-decoration:none}
+.contents a:hover .contents__name{text-decoration:underline;text-decoration-color:var(--color-accent);text-underline-offset:0.16em}
+.contents__name{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 12;font-size:1.5rem;line-height:1.1;letter-spacing:var(--tracking-display);color:var(--color-ink)}
+.contents__n{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* sections */
+.sec{padding-top:var(--section-gap)}
+.sec--s{padding-top:var(--section-gap-s)}
+.grp{padding-top:var(--space-xl)}
+.sec--l{padding-top:var(--section-gap-l)}
+.opens{border-top:4px solid var(--color-ink);padding-top:var(--space-lg)}
+.head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:var(--space-2xl);align-items:start;margin-bottom:var(--space-2xl)}
+.head h2{max-width:24ch}
+.head p{font-size:var(--text-lead);line-height:1.4;color:var(--color-ink);max-width:46ch}
+.head--stack{grid-template-columns:minmax(0,1fr);gap:var(--space-md)}
+.head--stack p{max-width:58ch}
+h1,h2,h3{color:var(--color-ink)}
+h3{font-variation-settings:"wdth" 75,"opsz" 96}
+.sub{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:var(--space-2xl);margin-top:var(--space-2xl)}
+.sub__head h3{max-width:18ch}
+.rule-thin{border-top-width:1px;border-top-color:var(--color-rule-2)}
+.mt-sm{margin-top:var(--space-sm)}
+.mt-md{margin-top:var(--space-md)}
+.mt-lg{margin-top:var(--space-lg)}
+.sub__head p{font-size:var(--text-md);color:var(--color-ink-2);margin-top:var(--space-xs);max-width:34ch}
+.note{font-size:var(--text-md);color:var(--color-ink-2);max-width:70ch}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:var(--text-md)}
+.tbl caption{text-align:left;font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);padding-bottom:var(--space-xs)}
+.tbl th{text-align:left;font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);padding:0 var(--space-md) var(--space-xs) 0;border-bottom:1px solid var(--color-rule-2);vertical-align:bottom}
+.tbl td{padding:var(--space-sm) var(--space-md) var(--space-sm) 0;border-bottom:1px solid var(--color-rule);vertical-align:top}
+.tbl tr:last-child td{border-bottom:1px solid var(--color-rule-2)}
+.tbl td:first-child{color:var(--color-ink);font-weight:600}
+.tbl .n{font-family:var(--font-display);font-weight:600;font-size:var(--text-md);font-variation-settings:"opsz" 12;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--color-ink)}
+.tbl .d{color:var(--color-ink-2);font-size:var(--text-md)}
+.tbl--tight td{padding-block:var(--space-xs)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-2xl);list-style:none;margin:var(--space-xl) 0 0;padding:0;counter-reset:s}
+.steps li{border-top:1px solid var(--color-rule-2);padding-top:var(--space-sm);counter-increment:s}
+.steps li::before{content:counter(s);display:block;font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 12;font-size:var(--text-2xl);line-height:1;color:var(--color-ink);margin-bottom:var(--space-xs);font-variant-numeric:lining-nums tabular-nums}
+.steps h4{font-family:var(--font-display);font-weight:600;font-size:var(--text-md);font-variation-settings:"opsz" 14;color:var(--color-ink);margin:0 0 var(--space-3xs);line-height:1.25}
+.steps p{font-size:var(--text-md);color:var(--color-ink-2)}
+.steps .n{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);color:var(--color-muted);display:block;margin-top:var(--space-2xs);font-variant-numeric:tabular-nums}
+
+/* the three boats */
+.well{background:var(--color-paper-2);border-top:1px solid var(--color-rule-2);margin:var(--space-xl) calc(var(--gutter) * -1) 0;padding:var(--space-xl) var(--gutter) var(--space-md)}
+.well__head{font-family:var(--font-body);font-weight:400;font-size:var(--text-display-s);line-height:1.12;color:var(--color-ink);max-width:24ch;margin:0 0 var(--space-xl);text-wrap:balance}
+.boats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-2xl);list-style:none;padding:0;margin:0}
+.boats li{border-top:1px solid var(--color-rule-2);padding-top:var(--space-sm)}
+.boats time,.boats .big{display:block;font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 12;font-size:var(--text-3xl);line-height:0.95;color:var(--color-ink);font-variant-numeric:lining-nums tabular-nums}
+.boats h4{font-family:var(--font-display);font-weight:600;font-size:var(--text-md);font-variation-settings:"opsz" 12;margin:var(--space-xs) 0 var(--space-2xs);color:var(--color-ink)}
+.boats p{font-size:var(--text-md);color:var(--color-ink-2)}
+.well__foot{font-size:var(--text-md);color:var(--color-ink-2);margin-top:var(--space-md);max-width:58ch}
+
+/* base split */
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--space-2xl);align-items:start}
+.split h3{font-size:var(--text-title)}
+.split p{margin-top:var(--space-sm);max-width:46ch}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:var(--space-xs) var(--space-lg);margin-top:var(--space-lg);font-size:var(--text-md)}
+.dl dt{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);padding-top:var(--space-3xs)}
+.dl dd{margin:0;color:var(--color-ink-2)}
+
+/* maps */
+.map-frame{border:1px solid var(--color-rule-2);background:var(--color-paper-2)}
+#map{height:620px}
+.map2{height:420px}
+.map-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:var(--space-2xl);align-items:start;margin-top:var(--space-xl)}
+.legend{display:flex;flex-wrap:wrap;gap:var(--space-sm) var(--space-lg);margin-top:var(--space-lg);padding-top:var(--space-md);border-top:1px solid var(--color-rule-2)}
+.lg{display:flex;align-items:center;gap:var(--space-xs);font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-ink-2);cursor:pointer;min-height:44px}
+.lg input{width:15px;height:15px;accent-color:var(--color-accent);margin:0}
+.lg.off{opacity:.45}
+.lg__k{display:inline-grid;place-items:center;width:19px;height:19px;background:var(--color-ink);color:var(--color-paper);font-size:10.5px;font-weight:800;line-height:1}
+.lg b{font-weight:600;color:var(--color-muted);font-variant-numeric:tabular-nums}
+.pin-wrap{width:44px;height:44px;display:grid;place-items:center}
+.pin{width:22px;height:22px;display:grid;place-items:center;background:var(--color-ink);color:var(--color-paper);font-family:var(--font-display);font-weight:800;font-size:10px;line-height:1;outline:1px solid var(--color-paper);outline-offset:-1px}
+.pin::before{content:attr(data-k)}
+.cluster{width:34px;height:34px;display:grid;place-items:center;background:var(--color-paper);color:var(--color-ink);border:1px solid var(--color-ink);font-family:var(--font-display);font-weight:800;font-size:var(--text-sm);font-variant-numeric:tabular-nums}
+.cluster::before{content:attr(data-n)}
+.pin--hotel{background:var(--color-accent);color:var(--color-accent-ink)}
+.leaflet-container{font-family:var(--font-display);font-size:var(--text-sm);background:var(--color-paper-2)}
+.leaflet-popup-content-wrapper{border-radius:0;background:var(--color-paper);color:var(--color-ink);box-shadow:0 1px 2px color-mix(in oklab, var(--color-ink) 18%, transparent)}
+.leaflet-popup-content{margin:var(--space-sm) var(--space-md);font-size:var(--text-sm);line-height:1.4}
+.leaflet-popup-content b{font-family:var(--font-display);font-weight:800;font-size:var(--text-md)}
+.leaflet-popup-content .a{display:block;color:var(--color-muted);font-size:var(--text-sm);margin-top:var(--space-3xs)}
+.leaflet-popup-tip{background:var(--color-paper)}
+.leaflet-popup-close-button{color:var(--color-muted)}
+.leaflet-control-zoom a,.leaflet-touch .leaflet-control-zoom a,.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:42px;font-size:1.25rem;color:var(--color-ink);background:var(--color-paper)}
+.leaflet-control-attribution{font-family:var(--font-display);font-size:11px;color:var(--color-ink-2);background:var(--color-paper)}
+.leaflet-control-attribution a{color:var(--color-ink-2);text-decoration:underline}
+
+/* the plan */
+.plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-2xl);margin-top:var(--space-2xl)}
+.day{border-top:1px solid var(--color-rule-2);padding-top:var(--space-md)}
+.day h3{font-size:var(--text-title)}
+.day__wx{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);margin-top:var(--space-3xs)}
+.day ol{list-style:none;margin:var(--space-lg) 0 0;padding:0}
+.day li{display:grid;grid-template-columns:4.6rem minmax(0,1fr);gap:var(--space-sm);padding-block:var(--space-sm);border-top:1px solid var(--color-rule)}
+.day li:first-child{border-top:1px solid var(--color-rule-2)}
+.day .t{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;font-variant-numeric:tabular-nums;color:var(--color-ink);padding-top:var(--space-3xs)}
+.day li p{font-size:var(--text-md);color:var(--color-ink-2)}
+.day li b{color:var(--color-ink);font-weight:600}
+
+/* phrases */
+.phrases{list-style:none;margin:var(--space-xl) 0 0;padding:0}
+.phrase{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr) auto;gap:var(--space-2xl);align-items:center;padding-block:var(--space-sm);border-top:1px solid var(--color-rule)}
+.phrase:first-child{border-top:1px solid var(--color-rule-2)}
+.phrase__nl{font-family:var(--font-display);font-weight:800;font-variation-settings:"wdth" 75,"opsz" 14;font-size:1.1875rem;color:var(--color-ink);line-height:1.2}
+.phrase__en{font-size:var(--text-md);color:var(--color-muted)}
+.spk{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;min-height:44px;padding:0 var(--space-lg);background:none;border:1px solid var(--color-rule-2);color:var(--color-ink);cursor:pointer}
+.spk:hover{background:var(--color-paper-2);border-color:var(--color-ink)}
+.spk:active{background:var(--color-paper-3)}
+.spk:disabled{opacity:.55;cursor:not-allowed}
+
+/* listings */
+.rows{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr) minmax(0,1fr);gap:var(--space-2xl);padding-block:var(--space-md);border-top:1px solid var(--color-rule);align-items:start}
+.rows > .row:first-child{border-top:1px solid var(--color-rule-2)}
+.row__name{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 24;font-size:1.5rem;line-height:1.08;letter-spacing:var(--tracking-display);color:var(--color-ink)}
+.row__where{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);margin-top:var(--space-2xs)}
+.row__tags{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-ink-2);margin-top:var(--space-3xs)}
+.row p{max-width:58ch}
+b,strong{font-weight:600}
+.row__veg{margin-top:var(--space-xs);font-size:var(--text-sm);line-height:1.5;color:var(--color-ink-2);max-width:58ch}
+.row__veg b{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-accent)}
+.row__map{text-align:right;font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12}
+.row__map a{color:var(--color-ink-2);text-decoration-color:var(--color-rule-2);white-space:nowrap}
+.row__map a:hover{color:var(--color-ink);text-decoration-color:var(--color-accent)}
+
+/* two-column listings (bars, things) */
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--space-2xl);list-style:none;margin:0;padding:0}
+.item{padding-block:var(--space-md);border-top:1px solid var(--color-rule)}
+.item--lead{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:var(--space-2xl);align-items:start}
+.item--lead .item__name{font-size:1.5rem}
+.item--lead .item__body p{margin-top:0;max-width:62ch}
+.item--lead .item__body .item__veg{margin-top:var(--space-xs)}
+.item--lead .item__foot{margin-top:var(--space-sm)}
+.cols2 > .item:nth-child(1),.cols2 > .item:nth-child(2){border-top:1px solid var(--color-rule-2)}
+.item__name{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 18;font-size:1.25rem;line-height:1.1;letter-spacing:var(--tracking-display);color:var(--color-ink)}
+.item__where{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted);margin-top:var(--space-3xs)}
+.item p{font-size:var(--text-md);margin-top:var(--space-2xs);max-width:52ch}
+.item__veg{font-size:var(--text-sm);color:var(--color-ink-2);margin-top:var(--space-2xs);max-width:52ch}
+.item__veg b{font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-accent)}
+.item__foot{display:flex;gap:var(--space-md);align-items:baseline;margin-top:var(--space-2xs);font-family:var(--font-display);font-weight:600;font-size:var(--text-sm);font-variation-settings:"opsz" 12;color:var(--color-muted)}
+.item__foot a{color:var(--color-ink-2);text-decoration-color:var(--color-rule-2)}
+
+/* colophon */
+.colophon{margin-top:var(--section-gap-l);border-top:4px solid var(--color-ink);padding-block:var(--space-xl) var(--space-2xl);font-size:var(--text-sm);line-height:1.6;color:var(--color-muted)}
+.colophon__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--space-2xl)}
+.colophon h2{font-family:var(--font-display);font-weight:var(--display-weight);font-variation-settings:"wdth" 75,"opsz" 96;font-size:var(--text-title);letter-spacing:var(--tracking-display);color:var(--color-ink);margin:0}
+.colophon p{margin-top:var(--space-xs);max-width:60ch}
+.colophon a{color:var(--color-ink-2)}
+
+@media (max-width:75rem){
+  .hero__in{grid-template-columns:minmax(0,1fr);gap:var(--space-2xl)}
+  .contents{max-width:34rem}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts li:nth-child(3){border-left:0;padding-left:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--color-rule);margin-top:var(--space-sm)}
+  .head,.split,.map-grid,.colophon__in{grid-template-columns:minmax(0,1fr);gap:var(--space-xl)}
+  .sub{grid-template-columns:minmax(0,1fr);gap:var(--space-md)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plan{grid-template-columns:minmax(0,1fr)}
+  .boats{grid-template-columns:minmax(0,1fr)}
+  .cols2{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:minmax(0,1fr);gap:var(--space-xs)}
+  .row__map{text-align:left;margin-top:var(--space-2xs)}
+  .phrase{grid-template-columns:minmax(0,1fr) auto;gap:var(--space-md)}
+  .phrase__en{grid-column:1 / -1;margin-top:calc(var(--space-2xs) * -1)}
+  #map{height:480px}
+}
+@media (max-width:60rem){
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{padding-block:var(--space-sm);border-bottom:1px solid var(--color-rule)}
+  .tbl tr:last-child{border-bottom:1px solid var(--color-rule-2)}
+  .tbl td{border:0;padding:0}
+  .tbl td:first-child{font-family:var(--font-display);font-weight:600;margin-bottom:var(--space-3xs)}
+  .tbl td + td{margin-top:var(--space-2xs)}
+  .tbl .n{margin-bottom:var(--space-2xs)}
+}
+@media (max-width:40rem){
+  .mast{position:static}
+  .mast__in{flex-direction:column;align-items:flex-start;height:auto;padding-block:var(--space-sm);gap:var(--space-2xs)}
+  .mast__nav{flex-wrap:wrap;overflow:visible;gap:0 var(--space-md);margin-left:0}
+  .hero{padding-block:var(--space-2xl) var(--space-xl)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .facts li + li{border-left:0;padding-left:0;border-top:1px solid var(--color-rule);margin-top:var(--space-sm)}
+  .dl{grid-template-columns:minmax(0,1fr);gap:var(--space-2xs)}
+  .dl dd{margin-bottom:var(--space-xs)}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#transport">Skip to the guide</a>
+
+<header class="mast">
+  <div class="container mast__in">
+    <a class="wordmark" href="#top" aria-label="Amsterdam, back to the top">Amsterdam</a>
+    <nav class="mast__nav" aria-label="Sections">
+      <a href="#transport">Getting there</a>
+      <a href="#base">Base</a>
+      <a href="#mapsection">Map</a>
+      <a href="#plan">Plan</a>
+      <a href="#practical">Practical</a>
+      <a href="#eat">Eat</a>
+      <a href="#drink">Drink</a>
+      <a href="#do">Do</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero__in">
+    <div>
+      <h1>Amsterdam</h1>
+      <p class="hero__dates">20 to 22 November 2026</p>
+      <p class="hero__line">Two nights on the north bank of the IJ. The ferry into town is free and takes four minutes.</p>
+      <ul class="facts">
+        <li><dl><dt>Base</dt><dd>Motorkade 1, Noord</dd></dl></li>
+        <li><dl><dt>Ferry</dt><dd>free, 4 min across</dd></dl></li>
+        <li><dl><dt>Hotel to Centraal</dt><dd>25 min door to door</dd></dl></li>
+        <li><dl><dt>Sunset</dt><dd>16:40 all weekend</dd></dl></li>
+      </ul>
+    </div>
+    <nav class="contents" aria-label="Contents">
+      <p class="contents__label">Contents</p>
+      <ol>
+        <li><a href="#transport"><span class="contents__name">Airport to hotel</span><span class="contents__n">last boat 23:50</span></a></li>
+        <li><a href="#base"><span class="contents__name">Motorkade 1</span><span class="contents__n">Buiksloterham, Noord</span></a></li>
+        <li><a href="#mapsection"><span class="contents__name">Every pin on one map</span><span class="contents__n">78 places</span></a></li>
+        <li><a href="#plan"><span class="contents__name">Friday to Sunday</span><span class="contents__n">3 days</span></a></li>
+        <li><a href="#practical"><span class="contents__name">Dutch, and seven of you</span><span class="contents__n">10 phrases</span></a></li>
+        <li><a href="#eat"><span class="contents__name">Thirty-one places</span><span class="contents__n">12 walk in</span></a></li>
+        <li><a href="#drink"><span class="contents__name">Beer in small glasses</span><span class="contents__n">22 bars</span></a></li>
+        <li><a href="#do"><span class="contents__name">Museums when it rains</span><span class="contents__n">24 things</span></a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="sec" id="transport">
+  <div class="container">
+    <div class="opens head">
+      <h2>Airport to hotel, and the last boat</h2>
+      <p>The base sits on the north bank of the IJ. The ferry behind Centraal is free, comes every few minutes, and takes four minutes to cross.</p>
+    </div>
+
+    <div class="sub">
+      <div class="sub__head">
+        <h3>Times and fares</h3>
+        <p>Fares are the 2026 published prices; ferry times are the operators’ own.</p>
+      </div>
+      <table class="tbl">
+        <thead><tr><th scope="col">What</th><th scope="col">Number</th><th scope="col">Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Airport to Centraal</td><td class="n">16-17 min</td><td class="d">NS Sprinter, up to eight an hour, €5.50 second class</td></tr>
+          <tr><td>Centraal to the hotel</td><td class="n">about 25 min</td><td class="d">Ferry F2 to IJplein, 4 min, then 9 min on foot. Or bus 34, 35 or 38 through the IJtunnel to Hamerstraat, 3 min walk</td></tr>
+          <tr><td>Schiphol to the hotel door</td><td class="n">45-55 min</td><td class="d">Train, ferry and walk, waiting included</td></tr>
+          <tr><td>Nearest stop to the hotel</td><td class="n">3 min</td><td class="d">Hamerstraat, buses 34, 35 and 38</td></tr>
+          <tr><td>Last IJplein ferry (F2)</td><td class="n">23:50</td><td class="d">First boat 06:26, every six minutes, crossing 4 to 5 min, free</td></tr>
+          <tr><td>Buiksloterweg ferry (F3)</td><td class="n">24 hours</td><td class="d">Every four minutes through the night, free, 13 min walk from the hotel</td></tr>
+          <tr><td>Last tram and metro</td><td class="n">about 00:30</td><td class="d">Trams wind down from about 00:15, metro M52 last train around 00:30</td></tr>
+          <tr><td>Night buses</td><td class="n">00:30-07:30</td><td class="d">Eleven lines, all from Centraal, once an hour. N91 to Nieuwendam, N93 to Molenwijk</td></tr>
+          <tr><td>Night bus fare</td><td class="n">€5.70</td><td class="d">Valid 90 minutes with transfers, or free with a GVB multiday pass</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec--s">
+      <div class="opens head rule-thin">
+        <h3>Arriving from Schiphol</h3>
+        <p>Gate to hotel in five steps, with bags, on a wet Friday.</p>
+      </div>
+      <ol class="steps">
+        <li><h4>Land and clear</h4><p>Passport control and bags.</p><span class="n">30-45 min</span></li>
+        <li><h4>Train under the terminal</h4><p>Buy or tap in. Paper adds €1.60, so just tap a bank card.</p><span class="n">5 min, €5.50</span></li>
+        <li><h4>Sprinter to Centraal</h4><p>Normally platform 3, eight trains an hour.</p><span class="n">16-17 min</span></li>
+        <li><h4>Out the IJ side, ferry F2</h4><p>Walk straight on. No ticket, no barrier.</p><span class="n">4-5 min</span></li>
+        <li><h4>IJplein to Motorkade 1</h4><p>Flat, along the waterside.</p><span class="n">9 min, 552 m</span></li>
+      </ol>
+      <p class="note mt-lg">Gate to hotel runs 45 to 55 minutes. With seven of you and bags, call it an hour. In rain, take bus 34, 35 or 38 from the Centraal side through the IJtunnel and get off at Hamerstraat, 191 m from the door, on the same OVpay tap.</p>
+    </div>
+
+    <div class="sec--s">
+      <div class="well">
+        <h3 class="well__head">Getting home after dark</h3>
+        <ul class="boats">
+          <li><time>23:50</time><h4>Last F2 to IJplein</h4><p>Free ferry from behind Centraal, every six minutes, then nine minutes on foot. Aim for the 23:30 or 23:40 boat.</p></li>
+          <li><time>24 hours</time><h4>F3 to Buiksloterweg</h4><p>Every four minutes. It lands 800 m west of the hotel, a 13 minute walk, and it runs all night.</p></li>
+          <li><span class="big">N91, N93</span><h4>Night buses from Centraal</h4><p>Hourly into Noord until 07:30. N93 leaves Centraal at 01:14 and is in Molenwijk at 01:44. €5.70 for 90 minutes, tap a card, you cannot buy on board.</p></li>
+        </ul>
+        <p class="well__foot">Fallback: a taxi or Uber from the centre to Noord is roughly €25 to €35 on the meter, an estimate rather than a published fare. Worth it once if the group splits.</p>
+      </div>
+    </div>
+
+    <div class="sec--s">
+      <div class="sub">
+        <div class="sub__head">
+          <h3>What to pay</h3>
+          <p>For this trip you barely need a travel card. The ferry is free and the eating and drinking clusters are walkable.</p>
+        </div>
+        <table class="tbl">
+          <thead><tr><th scope="col">Option</th><th scope="col">2026 price</th><th scope="col">Covers</th><th scope="col">Verdict for seven men, two nights</th></tr></thead>
+          <tbody>
+            <tr><td>OVpay, tap a bank card</td><td class="n">€1.16 plus €0.217/km</td><td class="d">Every tram, bus and metro, daily cap €10.50 per card</td><td class="d">Buy nothing. Most hops are €1.30 to €2.00, and each man taps his own</td></tr>
+            <tr><td>Night bus single</td><td class="n">€5.70</td><td class="d">90 minutes, transfers allowed</td><td class="d">Pay as you go, unless you hold a multiday pass</td></tr>
+            <tr><td>GVB 24 hours</td><td class="n">€10.00</td><td class="d">Trams, buses, metro, night buses</td><td class="d">Breaks even at three rides in a day</td></tr>
+            <tr><td>GVB 72 hours</td><td class="n">€21.50</td><td class="d">The same, 72 hours from first tap</td><td class="d">€150.50 for all seven, only worth it if you tram constantly</td></tr>
+            <tr><td>GVB group ticket</td><td class="n">€27.00</td><td class="d">24 hours for up to five people</td><td class="d">Two tickets, five and two, is €54 a day against €70 in day passes, but it is app only and you must travel together</td></tr>
+            <tr><td>Amsterdam Travel Ticket</td><td class="n">€20, €27, €34</td><td class="d">GVB plus the airport train and bus 397</td><td class="d">Three days is €238 for seven. You would pay €11 each for airport singles</td></tr>
+            <tr><td>Amsterdam and Region</td><td class="n">€23, €34, €44</td><td class="d">Adds regional buses and trains: Zaanse Schans, Haarlem, Volendam</td><td class="d">Only if you are doing a day trip out of the city</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note mt-lg">No valid check-in costs €70 plus the fare. Forgetting to tap out is charged as a €4 penalty fare on tram, bus and metro. One card cannot pay for two people. GVB tickets do not work on bus 391 to Zaanse Schans, 316 to Volendam or 397 to the airport, which are regional.</p>
+    </div>
+
+    <div class="sec--s">
+      <div class="opens head rule-thin">
+        <h3>Journey times from the hotel</h3>
+        <p>Walking times are 1.3 times the straight line from the hotel’s coordinates at 80 m a minute. Ferry and metro times are the operators’ published ones.</p>
+      </div>
+      <ul class="cols2">
+        <li class="item"><span class="item__name">Centraal station</span><div class="item__foot">about 20 min</div><p>F2 ferry, 9 min walk, up to 6 min wait, 4 min crossing.</p></li>
+        <li class="item"><span class="item__name">Dam Square and Rokin</span><div class="item__foot">about 25 min</div><p>F2 then walk from Centraal, or metro M52 from Noorderpark to Rokin.</p></li>
+        <li class="item"><span class="item__name">Jordaan, Westerkerk</span><div class="item__foot">about 30 min</div><p>F2 then west. Walkable in one go from the ferry on a dry night.</p></li>
+        <li class="item"><span class="item__name">Rembrandtplein</span><div class="item__foot">about 30 min</div><p>F2 then tram 4 or 14 from the Centraal side.</p></li>
+        <li class="item"><span class="item__name">Leidseplein</span><div class="item__foot">about 35 min</div><p>F2 then tram 2 or 12. The same for Museumplein, one stop further.</p></li>
+        <li class="item"><span class="item__name">De Pijp, Albert Cuyp</span><div class="item__foot">about 35 min</div><p>F2 then metro M52, the fastest north to south link in the city.</p></li>
+        <li class="item"><span class="item__name">NDSM and Straat</span><div class="item__foot">about 30 min</div><p>Ferry F4 from Centraal. Do not walk it, 40 minutes on foot.</p></li>
+        <li class="item"><span class="item__name">A’DAM Lookout and EYE</span><div class="item__foot">about 20 min</div><p>F3 to Buiksloterweg, 13 min walk to the ferry, 4 min crossing.</p></li>
+        <li class="item"><span class="item__name">Van der Pekbuurt</span><div class="item__foot">12-14 min</div><p>The nearest proper cluster of restaurants, and a market.</p></li>
+        <li class="item"><span class="item__name">Oedipus taproom</span><div class="item__foot">5 min</div><p>300 m, the nearest drink to the hotel.</p></li>
+        <li class="item"><span class="item__name">Schiphol airport</span><div class="item__foot">45-55 min</div><p>F2 back, then the Sprinter from Centraal, 16 to 17 minutes, allow 45 minutes door to gate.</p></li>
+        <li class="item"><span class="item__name">Noorderpark metro, M52</span><div class="item__foot">19 min</div><p>Only worth it heading deep south, as the ferry is usually as fast.</p></li>
+      </ul>
+      <p class="note mt-lg">Network maps to download before you go: <a href="https://www.gvb.nl/en/travel-information/maps" target="_blank" rel="noopener">the GVB full network map</a>, <a href="https://www.gvb.nl/en/travel-information/night-network" target="_blank" rel="noopener">the GVB night network</a>, and <a href="https://9292.nl/en" target="_blank" rel="noopener">9292</a>, which knows the last departures better than Google does.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--s" id="base">
+  <div class="container">
+    <div class="opens head">
+      <div><h2>Motorkade 1, Buiksloterham</h2></div>
+      <p>Buiksloterham, the old harbour works district on the north bank: 550 m from the IJplein ferry, 190 m from a bus stop, 300 m from a brewery taproom. The streets around it are quiet. The nearest proper restaurants are 12 to 14 minutes away in Van der Pekbuurt, and everything else is a four minute crossing.</p>
+    </div>
+    <div class="split">
+      <div>
+        <h3>Holiday Inn Express Amsterdam North Riverside</h3>
+        <dl class="dl">
+          <dt>Address</dt><dd>Motorkade 1, 1021 JR Amsterdam</dd>
+          <dt>Phone</dt><dd>+31 20 801 0000</dd>
+          <dt>Check-in</dt><dd>15:00</dd>
+          <dt>Check-out</dt><dd>12:00</dd>
+          <dt>Included</dt><dd>Breakfast, and bikes hired at the desk</dd>
+          <dt>To the ferry</dt><dd>9 minutes to IJplein, 13 minutes to Buiksloterweg</dd>
+          <dt>To the bus</dt><dd>Hamerstraat, 3 minutes, buses 34, 35 and 38</dd>
+        </dl>
+        <p>Without crossing the water: Oedipus taproom in 5 minutes, Il Pecorino in 13, SmaaQt in 14. Van der Pekmarkt and the Van der Pekstraat shops are 14 minutes away, Café de Ceuvel 19, and A’DAM Lookout with EYE is 20 minutes on the F3.</p>
+      </div>
+      <div>
+        <div id="base-map" class="map-frame map2"></div>
+      </div>
+    </div>
+    <div class="sec--s" id="mapsection">
+      <div class="opens head rule-thin">
+        <div><h3>Every pin on one map</h3></div>
+        <p>Tap a pin for the address and a Maps link.</p>
+    </div>
+    <div class="legend">
+      <label class="lg"><input type="checkbox" data-cat="eat" checked><span class="lg__k">R</span>Restaurant, walk in <b>12</b></label>
+      <label class="lg"><input type="checkbox" data-cat="veg" checked><span class="lg__k">V</span>Vegetarian <b>6</b></label>
+      <label class="lg"><input type="checkbox" data-cat="it" checked><span class="lg__k">I</span>Italian <b>6</b></label>
+      <label class="lg"><input type="checkbox" data-cat="take" checked><span class="lg__k">T</span>Takeaway, market <b>7</b></label>
+      <label class="lg"><input type="checkbox" data-cat="beer" checked><span class="lg__k">B</span>Craft beer <b>8</b></label>
+      <label class="lg"><input type="checkbox" data-cat="cocktail" checked><span class="lg__k">C</span>Cocktails <b>6</b></label>
+      <label class="lg"><input type="checkbox" data-cat="brown" checked><span class="lg__k">K</span>Brown café <b>8</b></label>
+      <label class="lg"><input type="checkbox" data-cat="museum" checked><span class="lg__k">M</span>Museum <b>9</b></label>
+      <label class="lg"><input type="checkbox" data-cat="exp" checked><span class="lg__k">X</span>Experience, tasting <b>7</b></label>
+      <label class="lg"><input type="checkbox" data-cat="sight" checked><span class="lg__k">S</span>Sight, walk <b>6</b></label>
+      <label class="lg"><input type="checkbox" data-cat="trip" checked><span class="lg__k">D</span>Day trip <b>2</b></label>
+      <label class="lg"><input type="checkbox" data-cat="hotel" checked><span class="lg__k">H</span>Your hotel <b>1</b></label>
+    </div>
+    <div id="map" class="map-frame mt-lg"></div>
+    <div class="map-grid">
+      <div>
+        <div id="noord-map" class="map-frame map2"></div>
+      </div>
+      <div>
+        <h3>Noord, on foot from the hotel</h3>
+        <p class="note">Everything on this map is a walk from the hotel, no ferry needed.</p>
+        <p class="note mt-md">There is a companion page with a KML file for My Maps and seven route links that open in the Maps app. <a href="maps.html" target="_blank" rel="noopener">Open the Google Maps setup</a>.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="container">
+    <div class="opens head">
+      <div><h2>Friday to Sunday</h2></div>
+      <p>The times follow the ferry timetable and the 16:40 sunset.</p>
+    </div>
+    <div class="plan">
+      <div class="day">
+        <h3>Friday 20</h3>
+        <p class="day__wx">9°, drizzle.</p>
+        <ol>
+          <li><span class="t">Afternoon</span><p>Train in, F2 ferry, dump the bags. No long walk on arrival.</p></li>
+          <li><span class="t">17:00</span><p>Oedipus taproom, five minutes away, for the first beer.</p></li>
+          <li><span class="t">19:00</span><p>Ferry over, then dinner at Bird Thai on the Zeedijk, walk in and veg sorted, or Bazar in De Pijp for the bigger room.</p></li>
+          <li><span class="t">21:30</span><p>In de Wildeman on Kolksteeg for the beer list, then Café Chris on Bloemstraat for a 1624 jenever.</p></li>
+          <li><span class="t">23:30</span><p>Aim for the 23:30 or 23:40 F2 from Centraal. Miss it and it is the F3 from Buiksloterweg, which never stops.</p></li>
+        </ol>
+      </div>
+      <div class="day">
+        <h3>Saturday 21</h3>
+        <p class="day__wx">10°, showers. Markets in the morning, Noord at midday, cocktails late.</p>
+        <ol>
+          <li><span class="t">09:30</span><p>Noordermarkt and Lindengracht, Saturdays only, in the Jordaan. Breakfast from the stalls, F2 over.</p></li>
+          <li><span class="t">12:00</span><p>Ferry F4 to NDSM: Straat museum, street art and indoors, then a beer at Pllek. Both are under cover, which is why this half of Saturday sits at midday.</p></li>
+          <li><span class="t">16:00</span><p>Back across for sunset at A’DAM Lookout, swing optional, or a pint at Café de Ceuvel, 19 minutes on foot.</p></li>
+          <li><span class="t">19:30</span><p>Dinner at Wijmpje Beukers or Bazar in De Pijp, or Café-Restaurant Amsterdam for the big room with 33 vegetarian dishes.</p></li>
+          <li><span class="t">22:00</span><p>Door 74, same-day reservation from the morning on WhatsApp +31 6 34 04 51 22, 21 and over, groups to 12. Then Tales &amp; Spirits, walk in until 01:00.</p></li>
+          <li><span class="t">Late</span><p>Night bus N91 or N93 from Centraal, or the F3, which runs all night.</p></li>
+        </ol>
+      </div>
+      <div class="day">
+        <h3>Sunday 22</h3>
+        <p class="day__wx">6°, dry and clear, −2° overnight.</p>
+        <ol>
+          <li><span class="t">09:30</span><p>Breakfast at the hotel, then ferry over.</p></li>
+          <li><span class="t">10:30</span><p>One small museum: Rembrandthuis, Ons’ Lieve Heer op Solder or Museum Van Loon.</p></li>
+          <li><span class="t">12:30</span><p>Wynand Fockink, Pijlsteeg 31, for a jenever. It opens early and takes twenty minutes.</p></li>
+          <li><span class="t">13:30</span><p>Last walk through the Jordaan. Shops mostly open around 12:00 on Sundays.</p></li>
+          <li><span class="t">15:00</span><p>F2 back, bags, then Centraal to Schiphol. Allow 45 minutes door to gate.</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--s" id="practical">
+  <div class="container">
+    <div class="opens head">
+      <div><h2>Dutch, and seven of you</h2></div>
+      <p>Ten phrases to say out loud, and the practical side of moving as seven.</p>
+    </div>
+    <div class="sub">
+      <div class="sub__head">
+        <h3>Moving as seven</h3>
+        <p>The things that need deciding before Friday.</p>
+      </div>
+      <div>
+        <p class="note">One taxi takes four. Restaurant tables for seven are the constraint, so ring the same afternoon even at walk-in places: “walk in” means no booking is required, not that a table for seven appears. Keep a shared pin on the hotel in Maps, and agree a meeting point before each night out. Café Chris in the Jordaan or In de Wildeman in the Centrum both work.</p>
+        <p class="note mt-md">Book before you fly or drop it: Anne Frank House is online only with timed slots and goes days ahead, Van Gogh is timed and often sold out on the day. The Amsterdam Light Festival does not start until 26 November, six days after you leave, and the IJ-hallen flea market runs the first weekend of the month, so not this one.</p>
+      </div>
+    </div>
+    <div class="sub mt-lg">
+      <div class="sub__head">
+        <h3>The weather, and what to pack</h3>
+      </div>
+      <div>
+        <p class="note">Friday 9° with light drizzle, Saturday 10° and showery, Sunday 6° and dry with −2° overnight. Bring a coat and boots for wet cobbles, and check the forecast again the morning you fly.</p>
+      </div>
+    </div>
+    <ul class="phrases">
+      <li class="phrase"><span class="phrase__nl">Goedemiddag</span><span class="phrase__en">Good afternoon</span><button class="spk" type="button" data-t="Goedemiddag">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Dank u wel</span><span class="phrase__en">Thank you</span><button class="spk" type="button" data-t="Dank u wel">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Heeft u een tafel voor zeven?</span><span class="phrase__en">Do you have a table for seven?</span><button class="spk" type="button" data-t="Heeft u een tafel voor zeven?">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Wat is er vegetarisch?</span><span class="phrase__en">What’s vegetarian?</span><button class="spk" type="button" data-t="Wat is er vegetarisch?">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Zonder vlees, alstublieft</span><span class="phrase__en">Without meat, please</span><button class="spk" type="button" data-t="Zonder vlees, alstublieft">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Zeven biertjes, alstublieft</span><span class="phrase__en">Seven beers, please</span><button class="spk" type="button" data-t="Zeven biertjes, alstublieft">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">De rekening, alstublieft</span><span class="phrase__en">The bill, please</span><button class="spk" type="button" data-t="De rekening, alstublieft">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Mag ik met kaart betalen?</span><span class="phrase__en">Can I pay by card?</span><button class="spk" type="button" data-t="Mag ik met kaart betalen?">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Hoe laat gaat de laatste pont?</span><span class="phrase__en">What time is the last ferry?</span><button class="spk" type="button" data-t="Hoe laat gaat de laatste pont?">Hear it</button></li>
+      <li class="phrase"><span class="phrase__nl">Proost!</span><span class="phrase__en">Cheers</span><button class="spk" type="button" data-t="Proost!">Hear it</button></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="eat">
+  <div class="container">
+    <div class="opens head head--stack">
+      <div><h2>Thirty-one places to eat</h2></div>
+      <p>In the €25 to €40 a head band, walk-in first. Every entry says what the vegetarian in the group can order.</p>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Walk-in restaurants, no reservation</h3>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h4 class="row__name">Bird Thai</h4>
+            <p class="row__where">Centrum, Zeedijk 72-74</p>
+            <p class="row__tags">Thai, walk-in, around €19 mains</p>
+          </div>
+          <div>
+            <p>On the edge of Chinatown, with a sit-down room and a snackbar across the street. No bookings: you queue, and the queue moves.</p>
+            <p class="row__veg"><b>Veg</b> Tahoe pad ped is the vegetarian version of their signature kai pad ped; vegetarian mains around €19.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bird+Thai,+Zeedijk+72-74,+Amsterdam" target="_blank" rel="noopener" aria-label="Bird Thai on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Nam Kee</h4>
+            <p class="row__where">Centrum, Zeedijk 111</p>
+            <p class="row__tags">Chinese, walk-in, fast</p>
+          </div>
+          <div>
+            <p>Cantonese roast house on the Zeedijk. Bright lights, fast service, big tables, ideal when nobody wants a two-hour dinner.</p>
+            <p class="row__veg"><b>Veg</b> Ask for the tofu and vegetable dishes off the Chinese menu rather than the tourist card.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Nam+Kee,+Zeedijk+111,+Amsterdam" target="_blank" rel="noopener" aria-label="Nam Kee on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Bazar</h4>
+            <p class="row__where">De Pijp, Albert Cuypstraat 182</p>
+            <p class="row__tags">Middle Eastern, big room, walk-in</p>
+          </div>
+          <div>
+            <p>Turkish/Moroccan/Persian in a converted church on Albert Cuyp market. Enormous, tolerant of walk-in groups, and mid-priced, this is the safe bet for seven on a Saturday night.</p>
+            <p class="row__veg"><b>Veg</b> Vegetarian dishes are a real part of the menu, not an afterthought, mosamma of aubergine, potato, tofu, cheese and hazelnuts; tepsi börek with feta.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bazar,+Albert+Cuypstraat+182,+Amsterdam" target="_blank" rel="noopener" aria-label="Bazar on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Café-Restaurant Amsterdam</h4>
+            <p class="row__where">Westerpark, Watertorenplein 6</p>
+            <p class="row__tags">brasserie, huge, no booking</p>
+          </div>
+          <div>
+            <p>French-ish brasserie in a former waterworks engine room near Westerpark: high ceilings, long bar, hundreds of covers, no reservation system worth the name. Kitchen runs to 22:00, and the bar stays open to 00:00 (01:00 Fri/Sat).</p>
+            <p class="row__veg"><b>Veg</b> One of the best vegetarian ratios in the city, roughly 33 vegetarian and 16 vegan dishes on the menu.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café-Restaurant+Amsterdam,+Watertorenplein+6,+Amsterdam" target="_blank" rel="noopener" aria-label="Café-Restaurant Amsterdam on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Gossler &amp; Florin</h4>
+            <p class="row__where">Jordaan, Lindengracht 90</p>
+            <p class="row__tags">neo-brasserie, walk-ins welcome, €25-40</p>
+          </div>
+          <div>
+            <p>Jordaan brasserie that explicitly keeps room for spontaneous walk-ins. Straightforward menu, professional staff, comfortable rather than trendy.</p>
+            <p class="row__veg"><b>Veg</b> Vegetarian starters and a pasta/vegetable main; ask what’s off-menu.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Gossler+&amp;+Florin,+Lindengracht+90,+Amsterdam" target="_blank" rel="noopener" aria-label="Gossler &amp; Florin on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">De Tros</h4>
+            <p class="row__where">Oost, Linnaeusstraat 63H</p>
+            <p class="row__tags">neighbourhood café, walk-in, natural wine</p>
+          </div>
+          <div>
+            <p>French-Asian cooking, natural wine, bar seats, terrace. Walk-ins are standard; if they’re full, sister place Turbo is next door.</p>
+            <p class="row__veg"><b>Veg</b> Enoki tempura, vegetable plates off the changing menu, the card changes often, so ask.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=De+Tros,+Linnaeusstraat+63H,+Amsterdam" target="_blank" rel="noopener" aria-label="De Tros on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Wijmpje Beukers</h4>
+            <p class="row__where">De Pijp, Karel du Jardinstraat 47</p>
+            <p class="row__tags">walk-in pioneer, weekly menu, €25-35</p>
+          </div>
+          <div>
+            <p>Short weekly menu, good wine, cheerful staff. Wait with a glass if there’s no table, it’s rarely long.</p>
+            <p class="row__veg"><b>Veg</b> Menu changes weekly; there is normally a vegetarian plate and a good cheese/veg starter. Bread with miso butter and ginger aioli is the fixture.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Wijmpje+Beukers,+Karel+du+Jardinstraat+47,+Amsterdam" target="_blank" rel="noopener" aria-label="Wijmpje Beukers on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Café Binnenvisser</h4>
+            <p class="row__where">Oud-West, Bilderdijkstraat 36</p>
+            <p class="row__tags">French, bar seats, walk-in ≤6</p>
+          </div>
+          <div>
+            <p>Bar-first French cooking in Oud-West, you eat at the bar and watch the pass. Beautiful plates, good music, natural wine.</p>
+            <p class="row__veg"><b>Veg</b> Note the group thing: walk-ins are for up to six; seven of you should email ahead or split 4+3 at the bar. Vegetarian plates are on the daily menu.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+Binnenvisser,+Bilderdijkstraat+36,+Amsterdam" target="_blank" rel="noopener" aria-label="Café Binnenvisser on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Pepito</h4>
+            <p class="row__where">Oud-West, Eerste Constantijn Huygensstraat 21</p>
+            <p class="row__tags">Spanish tapas, waiting list, no booking</p>
+          </div>
+          <div>
+            <p>Spanish tapas room near the Vondelpark end of Oud-West. No reservations, you leave a name, go for a drink nearby, and come back.</p>
+            <p class="row__veg"><b>Veg</b> Tapas is the easiest format for mixed diets in the city: tortilla, padron peppers, aubergine, tortilla-esque plates, pan con tomate.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pepito,+Eerste+Constantijn+Huygensstraat+21,+Amsterdam" target="_blank" rel="noopener" aria-label="Pepito on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">SmaaQt</h4>
+            <p class="row__where">Noord, Van der Pekstraat 79</p>
+            <p class="row__tags">local, near hotel, walk-in</p>
+          </div>
+          <div>
+            <p>The closest proper restaurant to the hotel, 14 minutes on foot along Van der Pekstraat. Reasonable prices, no fuss.</p>
+            <p class="row__veg"><b>Veg</b> Vegetarian dish on the menu; it’s a small kitchen so ask when you sit down.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=SmaaQt,+Van+der+Pekstraat+79,+Amsterdam" target="_blank" rel="noopener" aria-label="SmaaQt on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Il Pecorino</h4>
+            <p class="row__where">Noord, Van der Pekplein 11</p>
+            <p class="row__tags">Italian, near hotel, walk-in</p>
+          </div>
+          <div>
+            <p>Pizza and pasta on Van der Pekplein, 13 minutes from the hotel. Pizzas are the thing to order.</p>
+            <p class="row__veg"><b>Veg</b> Margherita, ortolana, quattro formaggi, standard Italian vegetarian coverage.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Il+Pecorino,+Van+der+Pekplein+11,+Amsterdam" target="_blank" rel="noopener" aria-label="Il Pecorino on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Spaghetteria</h4>
+            <p class="row__where">Citywide, 8 branches (pin = Albert Cuyp)</p>
+            <p class="row__tags">pasta, walk-in, cheap</p>
+          </div>
+          <div>
+            <p>Six or so pasta dishes, fresh, organic flour, short wine list, scroppino. The reliable cheap dinner when a plan collapses. Walk-ins always welcome even where they now take bookings.</p>
+            <p class="row__veg"><b>Veg</b> Every branch has vegetarian pasta options, the menu is built as meat / fish / vegetarian variants of the same six dishes.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Spaghetteria,+8+branches+(pin+=+Albert+Cuyp),+Amsterdam" target="_blank" rel="noopener" aria-label="Spaghetteria on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Vegetarian restaurants</h3>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h4 class="row__name">De Waaghals</h4>
+            <p class="row__where">De Pijp, Frans Halsstraat 29</p>
+            <p class="row__tags">vegetarian, since 1981, dinner</p>
+          </div>
+          <div>
+            <p>Amsterdam’s benchmark vegetarian restaurant, no meat, no fish anywhere on the menu, Dutch-seasonal cooking rather than fake meat.</p>
+            <p class="row__veg"><b>Veg</b> Entire menu is vegetarian (a cheese platter is the only non-plant item).</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=De+Waaghals,+Frans+Halsstraat+29,+Amsterdam" target="_blank" rel="noopener" aria-label="De Waaghals on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Golden Temple</h4>
+            <p class="row__where">Centrum, Utrechtsestraat 126</p>
+            <p class="row__tags">vegetarian, since 1973, mezze</p>
+          </div>
+          <div>
+            <p>The oldest vegetarian restaurant in the centre, running since 1973. Relaxed room, mezze-style plates, upstairs mezzanine that seats groups.</p>
+            <p class="row__veg"><b>Veg</b> Fully vegetarian; not fully vegan, so egg appears in some dishes, ask.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Temple,+Utrechtsestraat+126,+Amsterdam" target="_blank" rel="noopener" aria-label="Golden Temple on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Meatless District</h4>
+            <p class="row__where">Oud-West, Bilderdijkstraat 65-67</p>
+            <p class="row__tags">fully vegan, all day, casual</p>
+          </div>
+          <div>
+            <p>Dedicated vegan café from breakfast to dinner, jackfruit ’pulled pork’, cashew cheese, large portions.</p>
+            <p class="row__veg"><b>Veg</b> 100% plant-based, no questions needed.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Meatless+District,+Bilderdijkstraat+65-67,+Amsterdam" target="_blank" rel="noopener" aria-label="Meatless District on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Flore</h4>
+            <p class="row__where">Oost, Weesperzijde 135</p>
+            <p class="row__tags">vegan, brunch, riverside</p>
+          </div>
+          <div>
+            <p>All-day vegan café on the Amstel with an organic, farm-sourced menu. Weekend brunch is the draw.</p>
+            <p class="row__veg"><b>Veg</b> 100% plant-based.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Flore,+Weesperzijde+135,+Amsterdam" target="_blank" rel="noopener" aria-label="Flore on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Café Beurre</h4>
+            <p class="row__where">Staatsliedenbuurt, Van Limburg Stirumstraat 115</p>
+            <p class="row__tags">entirely vegetarian, no reservations, small plates</p>
+          </div>
+          <div>
+            <p>New-ish Staatsliedenbuurt café serving entirely vegetarian plates, built around butter and a serious wine list. Small room, small terrace, walk in and hope.</p>
+            <p class="row__veg"><b>Veg</b> The whole menu is vegetarian.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+Beurre,+Van+Limburg+Stirumstraat+115,+Amsterdam" target="_blank" rel="noopener" aria-label="Café Beurre on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">NENI Amsterdam</h4>
+            <p class="row__where">Westerpark, Haarlemmerweg 10</p>
+            <p class="row__tags">Israeli mezze, mixed group, sharing</p>
+          </div>
+          <div>
+            <p>Big Israeli-influenced room at Westerpark, mezze built for sharing, meat dishes alongside so the whole group is covered.</p>
+            <p class="row__veg"><b>Veg</b> Most of the mezze is plant-based; sabich contains egg.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=NENI+Amsterdam,+Haarlemmerweg+10,+Amsterdam" target="_blank" rel="noopener" aria-label="NENI Amsterdam on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Italian</h3>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h4 class="row__name">La Perla</h4>
+            <p class="row__where">Jordaan, Tweede Tuindwarsstraat 53</p>
+            <p class="row__tags">wood-fired, slices to go, institution</p>
+          </div>
+          <div>
+            <p>The anchor of the Jordaan’s ’Little Italy’ street, charred Neapolitan pies, pasta, sandwiches, takeaway slices.</p>
+            <p class="row__veg"><b>Veg</b> Margherita, marinara, ortolana, funghi.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Perla,+Tweede+Tuindwarsstraat+53,+Amsterdam" target="_blank" rel="noopener" aria-label="La Perla on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">nNea Pizza</h4>
+            <p class="row__where">Oud-West, Bilderdijkstraat 92</p>
+            <p class="row__tags">7th in Europe 2026, book first, Neapolitan</p>
+          </div>
+          <div>
+            <p>Ranked 7th in Europe by 50 Top Pizza in 2026. The one table on this whole guide worth booking before you fly.</p>
+            <p class="row__veg"><b>Veg</b> Classic vegetarian toppings plus seasonal vegetable pies.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=nNea+Pizza,+Bilderdijkstraat+92,+Amsterdam" target="_blank" rel="noopener" aria-label="nNea Pizza on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Pazzi Jordaan</h4>
+            <p class="row__where">Jordaan, Eerste Looiersdwarsstraat 4</p>
+            <p class="row__tags">walk-in only, thin crust, no booking</p>
+          </div>
+          <div>
+            <p>Wood-fired since 2010, small room, no reservations at all. The fallback when La Perla is heaving.</p>
+            <p class="row__veg"><b>Veg</b> Margherita, quattro stagioni minus the ham on request, vegetable pies.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pazzi+Jordaan,+Eerste+Looiersdwarsstraat+4,+Amsterdam" target="_blank" rel="noopener" aria-label="Pazzi Jordaan on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Mangia Pizza &amp; Wine</h4>
+            <p class="row__where">Centrum, Vijzelgracht 33</p>
+            <p class="row__tags">central, Neapolitan, fried starters</p>
+          </div>
+          <div>
+            <p>Properly made Neapolitan pizza in the middle of town, plus fried street-food starters and pasta so a split group is fine.</p>
+            <p class="row__veg"><b>Veg</b> Several vegetarian pizzas and pasta.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mangia+Pizza+&amp;+Wine,+Vijzelgracht+33,+Amsterdam" target="_blank" rel="noopener" aria-label="Mangia Pizza &amp; Wine on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Renato’s Pizzeria</h4>
+            <p class="row__where">De Pijp, Karel du Jardinstraat 32</p>
+            <p class="row__tags">thin crisp, veg/vegan/GF, since 2004</p>
+          </div>
+          <div>
+            <p>Old-school De Pijp pizzeria, crisp thin bases, and explicitly vegetarian, vegan and gluten-free options.</p>
+            <p class="row__veg"><b>Veg</b> Labelled vegetarian, vegan and gluten-free choices on the menu.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Renato&#x27;s+Pizzeria,+Karel+du+Jardinstraat+32,+Amsterdam" target="_blank" rel="noopener" aria-label="Renato’s Pizzeria on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Bella Storia</h4>
+            <p class="row__where">Westerpark, Bentinckstraat 26</p>
+            <p class="row__tags">restaurant, takeaway, deli</p>
+          </div>
+          <div>
+            <p>Full Italian restaurant, takeaway counter and deli beside Westerpark.</p>
+            <p class="row__veg"><b>Veg</b> Vegetarian antipasti, pasta and pizza.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bella+Storia,+Bentinckstraat+26,+Amsterdam" target="_blank" rel="noopener" aria-label="Bella Storia on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Takeaway and markets</h3>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h4 class="row__name">Sonny Falafel</h4>
+            <p class="row__where">De Pijp, Eerste van der Helststraat 43</p>
+            <p class="row__tags">falafel, counter, cheap</p>
+          </div>
+          <div>
+            <p>The De Pijp falafel benchmark, crisp, herb-heavy, good hummus and fries.</p>
+            <p class="row__veg"><b>Veg</b> Vegetarian by default.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sonny+Falafel,+Eerste+van+der+Helststraat+43,+Amsterdam" target="_blank" rel="noopener" aria-label="Sonny Falafel on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">The Lebanese Sajeria</h4>
+            <p class="row__where">Centrum, Utrechtsestraat 69</p>
+            <p class="row__tags">Lebanese, wraps, to go</p>
+          </div>
+          <div>
+            <p>Lebanese wraps and mezze to go, falafel, halloumi, chargrilled veg. Fast and cheap near Rembrandtplein.</p>
+            <p class="row__veg"><b>Veg</b> Falafel and halloumi wraps, plus mezze.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Lebanese+Sajeria,+Utrechtsestraat+69,+Amsterdam" target="_blank" rel="noopener" aria-label="The Lebanese Sajeria on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Vegan Junk Food Bar</h4>
+            <p class="row__where">Centrum, Leidsegracht 34</p>
+            <p class="row__tags">100% vegan, burgers, €12-16</p>
+          </div>
+          <div>
+            <p>Burgers, loaded fries and shakes, all vegan, counter service.</p>
+            <p class="row__veg"><b>Veg</b> Everything.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vegan+Junk+Food+Bar,+Leidsegracht+34,+Amsterdam" target="_blank" rel="noopener" aria-label="Vegan Junk Food Bar on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Foodhallen</h4>
+            <p class="row__where">Oud-West, Bellamyplein 51</p>
+            <p class="row__tags">indoor food hall, mixed group, evening</p>
+          </div>
+          <div>
+            <p>Covered food hall in a converted tram depot: fourteen stalls, grab a table, everyone eats what they want. Busy, and the easiest wet-afternoon lunch.</p>
+            <p class="row__veg"><b>Veg</b> Dim sum, pizza, sushi, and several vegetarian stalls.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Foodhallen,+Bellamyplein+51,+Amsterdam" target="_blank" rel="noopener" aria-label="Foodhallen on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Albert Cuyp Markt</h4>
+            <p class="row__where">De Pijp, Albert Cuypstraat</p>
+            <p class="row__tags">market, Mon-Sat, street food</p>
+          </div>
+          <div>
+            <p>The big De Pijp street market. Falafel €5-7, fresh juice €3-4, cheese and fruit stalls.</p>
+            <p class="row__veg"><b>Veg</b> Falafel, juices, fruit, cheese.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Albert+Cuyp+Markt,+Albert+Cuypstraat,+Amsterdam" target="_blank" rel="noopener" aria-label="Albert Cuyp Markt on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Van der Pekmarkt</h4>
+            <p class="row__where">Noord, Van der Pekstraat</p>
+            <p class="row__tags">market, near hotel, local</p>
+          </div>
+          <div>
+            <p>The Noord market 14 minutes from your hotel, produce, cheese, fish, cheap hot food, and nothing touristy about it. Check the day it runs before you walk over.</p>
+            <p class="row__veg"><b>Veg</b> Market food: cheese, fruit, broodjes.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Van+der+Pekmarkt,+Van+der+Pekstraat,+Amsterdam" target="_blank" rel="noopener" aria-label="Van der Pekmarkt on Google Maps">Map</a></div>
+        </li>
+        <li class="row">
+          <div>
+            <h4 class="row__name">Dappermarkt</h4>
+            <p class="row__where">Oost, Dapperstraat</p>
+            <p class="row__tags">market, Mon-Sat, multicultural</p>
+          </div>
+          <div>
+            <p>Oost’s market is better than Albert Cuyp for multicultural vegetarian street food, Turkish börek, Moroccan pastries, Indonesian tofu.</p>
+            <p class="row__veg"><b>Veg</b> Börek with spinach or cheese, vegetable pastries.</p>
+          </div>
+          <div class="row__map"><a href="https://www.google.com/maps/search/?api=1&amp;query=Dappermarkt,+Dapperstraat,+Amsterdam" target="_blank" rel="noopener" aria-label="Dappermarkt on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="well mt-lg">
+      <h3 class="well__head">Before you book a table</h3>
+      <p class="note">Ring ahead for anything on a Saturday after 20:00, even at walk-in places. The meat-led rooms are there for variety: the vegetarian eats sides and drinks beer, so do not make one the main-night dinner.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--s" id="drink">
+  <div class="container">
+    <div class="opens head">
+      <div><h2>Beer in small glasses</h2></div>
+      <p>Amsterdam beer comes in small glasses, a vaasje of 0.25 L, so you can work through a tap list. €5 to €7 a glass at a taproom, €7 to €9 at a specialist bar, €4 to €6 for a macro pilsner.</p>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Craft beer and breweries</h3>
+      </div>
+      <ul class="cols2">
+        <li class="item">
+          <h4 class="item__name">Oedipus Taproom</h4>
+          <p class="item__where">Noord, Schaafstraat 21</p>
+          <p class="item__tags">5 min from hotel, warehouse, food trucks</p>
+          <p>On your doorstep, 300 m and five minutes’ walk. Big warehouse tap room, picnic tables, food trucks, wild beers, which makes it the first-night camp.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Oedipus+Taproom,+Schaafstraat+21,+Amsterdam" target="_blank" rel="noopener" aria-label="Oedipus Taproom on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Brouwerij ’t IJ</h4>
+          <p class="item__where">Oost, Funenkade 7</p>
+          <p class="item__tags">windmill, brewery, tour Sat 14:30</p>
+          <p>Amsterdam’s original craft brewery under the De Gooyer windmill. Brewery tour Saturdays 14:30-16:30 (€10 including a beer); tap room daily.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Brouwerij+&#x27;t+IJ,+Funenkade+7,+Amsterdam" target="_blank" rel="noopener" aria-label="Brouwerij ’t IJ on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">In de Wildeman</h4>
+          <p class="item__where">Centrum, Kolksteeg 3</p>
+          <p class="item__tags">brown café, 18 taps, 200+ bottles</p>
+          <p>A 1690 former distillery turned beer bar, no music, 18 taps, 200+ bottles, Belgian Trappists and Dutch micros. The purist’s choice, a minute from Dam Square.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=In+de+Wildeman,+Kolksteeg+3,+Amsterdam" target="_blank" rel="noopener" aria-label="In de Wildeman on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Proeflokaal Arendsnest</h4>
+          <p class="item__where">Centrum, Herengracht 90</p>
+          <p class="item__tags">100% Dutch, 50 taps, canal-side</p>
+          <p>Only Dutch beer, 50 taps and 100+ bottles, on the Herengracht. Order a flight and work through the country in one sitting.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Proeflokaal+Arendsnest,+Herengracht+90,+Amsterdam" target="_blank" rel="noopener" aria-label="Proeflokaal Arendsnest on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Brouwerij De Prael</h4>
+          <p class="item__where">Centrum, Oudezijds Armsteeg 26</p>
+          <p class="item__tags">social enterprise, taproom + food, central</p>
+          <p>Brewery and proeflokaal in an old Dutch interior, employing people who face barriers to work. Beer plus Dutch comfort food.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Brouwerij+De+Prael,+Oudezijds+Armsteeg+26,+Amsterdam" target="_blank" rel="noopener" aria-label="Brouwerij De Prael on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Brouwerij Troost Westergas</h4>
+          <p class="item__where">Westerpark, Pazzanistraat 27</p>
+          <p class="item__tags">brewpub, industrial, food</p>
+          <p>The Westergas site: brews on site, industrial-chic, decent kitchen. Pairs with Café-Restaurant Amsterdam across the park.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Brouwerij+Troost+Westergas,+Pazzanistraat+27,+Amsterdam" target="_blank" rel="noopener" aria-label="Brouwerij Troost Westergas on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Poesiat &amp; Kater</h4>
+          <p class="item__where">Oost, Polderweg 648</p>
+          <p class="item__tags">historic recipes, tasting room, Oost</p>
+          <p>Reviving Amsterdam beer styles lost to industrialisation, including the resurrected Van Vollenhoven. Tasting room does food.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Poesiat+&amp;+Kater,+Polderweg+648,+Amsterdam" target="_blank" rel="noopener" aria-label="Poesiat &amp; Kater on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">BeerTemple</h4>
+          <p class="item__where">Centrum, Nieuwezijds Voorburgwal 250</p>
+          <p class="item__tags">30 taps, American craft, central</p>
+          <p>American-leaning craft bar, ~30 drafts, 100+ bottles. The one for the IPA obsessive in the group.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=BeerTemple,+Nieuwezijds+Voorburgwal+250,+Amsterdam" target="_blank" rel="noopener" aria-label="BeerTemple on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Cocktail bars</h3>
+      </div>
+      <ul class="cols2">
+        <li class="item">
+          <h4 class="item__name">Door 74</h4>
+          <p class="item__where">Rembrandtplein, Reguliersdwarsstraat 74</p>
+          <p class="item__tags">speakeasy, same-day booking, 21+</p>
+          <p>Amsterdam’s original speakeasy: unmarked black door, ten seats, no menu, you describe what you like. Same-day reservations only (site or WhatsApp +31 6 34 04 51 22), groups up to 12, 21+, open to 03:00, 04:00 Fri/Sat.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Door+74,+Reguliersdwarsstraat+74,+Amsterdam" target="_blank" rel="noopener" aria-label="Door 74 on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Tales &amp; Spirits</h4>
+          <p class="item__where">Centrum, Lijnbaanssteeg 5-7</p>
+          <p class="item__tags">multi-storey, walk-in, food</p>
+          <p>Multi-storey cocktail den down a medieval alley, curios, candlelight, house ’tales’ plus tight classics, and a kitchen. Walk-in only, Tue-Sat 17:30-01:00.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tales+&amp;+Spirits,+Lijnbaanssteeg+5-7,+Amsterdam" target="_blank" rel="noopener" aria-label="Tales &amp; Spirits on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Bar Oldenhof</h4>
+          <p class="item__where">Jordaan, Elandsgracht 84-H</p>
+          <p class="item__tags">living-room, whisky, classics</p>
+          <p>Wood-panelled salon, velvet seats, deep whisky shelf. Closest thing in Amsterdam to a grown-up living room. Ring ahead at peak times.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Oldenhof,+Elandsgracht+84-H,+Amsterdam" target="_blank" rel="noopener" aria-label="Bar Oldenhof on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Vesper Bar</h4>
+          <p class="item__where">Jordaan, Vinkenstraat 57</p>
+          <p class="item__tags">tiny, Jordaan, walk-in</p>
+          <p>Tiny candlelit Jordaan bar with a changing menu. Give the bartender a flavour brief and let them steer. Walk-ins only.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vesper+Bar,+Vinkenstraat+57,+Amsterdam" target="_blank" rel="noopener" aria-label="Vesper Bar on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Super Lyan</h4>
+          <p class="item__where">Centrum, Nieuwezijds Voorburgwal 3</p>
+          <p class="item__tags">playful, mixed groups, late</p>
+          <p>Mr Lyan’s Amsterdam outpost by Centraal: beeswax Old Fashioned, low-waste thinking, stays busy past midnight. Best all-rounder for seven.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Super+Lyan,+Nieuwezijds+Voorburgwal+3,+Amsterdam" target="_blank" rel="noopener" aria-label="Super Lyan on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Flying Dutchmen Cocktails</h4>
+          <p class="item__where">Centrum, Singel 460</p>
+          <p class="item__tags">classic technique, canal house, Martinis</p>
+          <p>A cocktail bar on the Singel with an encyclopaedic back bar, clear ice and correctly stirred drinks.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Flying+Dutchmen+Cocktails,+Singel+460,+Amsterdam" target="_blank" rel="noopener" aria-label="Flying Dutchmen Cocktails on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Brown cafés</h3>
+      </div>
+      <ul class="cols2">
+        <li class="item">
+          <h4 class="item__name">Café Chris</h4>
+          <p class="item__where">Jordaan, Bloemstraat 42</p>
+          <p class="item__tags">oldest in Jordaan (1624), jenever, tiny</p>
+          <p>Pouring since 1624, still a pub first and a monument second. Order a kopstootje, jenever with a beer chaser.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+Chris,+Bloemstraat+42,+Amsterdam" target="_blank" rel="noopener" aria-label="Café Chris on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café ’t Smalle</h4>
+          <p class="item__where">Jordaan, Egelantiersgracht 12</p>
+          <p class="item__tags">canal-side, 1780 distillery, terrace</p>
+          <p>Wood panelling, mezzanine bar, barrels over the counter, in Pieter Hoppe’s old liqueur distillery. Sit on the canal terrace.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+&#x27;t+Smalle,+Egelantiersgracht+12,+Amsterdam" target="_blank" rel="noopener" aria-label="Café ’t Smalle on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café Hoppe</h4>
+          <p class="item__where">Centrum, Spui 18-20</p>
+          <p class="item__tags">standing room, sawdust, 348 years</p>
+          <p>Sawdust floor and standing room on one side, dark panelling and a terrace on the other. Jenever for three and a half centuries.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+Hoppe,+Spui+18-20,+Amsterdam" target="_blank" rel="noopener" aria-label="Café Hoppe on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café de Wetering</h4>
+          <p class="item__where">Centrum, Weteringstraat 37</p>
+          <p class="item__tags">fireplace, armchairs, house cat</p>
+          <p>17th-century corner café in the Spiegelkwartier with an open fire, leather armchairs and a resident cat. The fireside option on a -2°C night.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+de+Wetering,+Weteringstraat+37,+Amsterdam" target="_blank" rel="noopener" aria-label="Café de Wetering on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café De Oranjerie</h4>
+          <p class="item__where">Jordaan, Binnen Oranjestraat 15</p>
+          <p class="item__tags">Belgian beer, Art Deco, board games</p>
+          <p>Belgian speciality beer in a high Art Deco room papered with theatre posters, plus a corner for Scrabble.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+De+Oranjerie,+Binnen+Oranjestraat+15,+Amsterdam" target="_blank" rel="noopener" aria-label="Café De Oranjerie on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café Slijterij Oosterling</h4>
+          <p class="item__where">Centrum, Utrechtsestraat 140</p>
+          <p class="item__tags">1735 building, tiled floors, eccentric</p>
+          <p>Oosterling family since 1877, building from 1735, tiled floors, old fittings, and a reputation for being slightly haunted.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+Slijterij+Oosterling,+Utrechtsestraat+140,+Amsterdam" target="_blank" rel="noopener" aria-label="Café Slijterij Oosterling on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Café de Ceuvel</h4>
+          <p class="item__where">Noord, Korte Papaverweg 4</p>
+          <p class="item__tags">19 min from hotel, circular, waterside</p>
+          <p>Café on a former shipyard turned circular creative site, with upcycled houseboats, a waterside deck and a plant-led menu. The nearest waterside drink to your hotel.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Café+de+Ceuvel,+Korte+Papaverweg+4,+Amsterdam" target="_blank" rel="noopener" aria-label="Café de Ceuvel on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Pllek</h4>
+          <p class="item__where">Noord, Tt Neveritaweg 59</p>
+          <p class="item__tags">city view, containers, food</p>
+          <p>Built from shipping containers on a beach on the IJ, looking back at the skyline. Sunset is 16:40, go at 16:00 and stay.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pllek,+Tt+Neveritaweg+59,+Amsterdam" target="_blank" rel="noopener" aria-label="Pllek on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--s" id="do">
+  <div class="container">
+    <div class="opens head head--stack">
+      <div><h2>Museums when it rains</h2></div>
+      <p>Daytime and early evening only. Anything outdoors is a 15:30 to 16:30 job; by five you want to be inside.</p>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Experiences worth the time</h3>
+      </div>
+      <ul class="cols2 cols2--lead">
+        <li class="item item--lead">
+          <div class="item__head">
+            <h4 class="item__name">House of Bols</h4>
+            <p class="item__where">Museumplein, Paulus Potterstraat 14</p>
+            <p class="item__tags">genever, cocktail bar, ~1 hr</p>
+          </div>
+          <div class="item__body">
+            <p>Cocktail and genever experience next to the Van Gogh Museum, ending in a proper mirrored bar. Works for a group of seven.</p>
+            
+            <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=House+of+Bols,+Paulus+Potterstraat+14,+Amsterdam" target="_blank" rel="noopener" aria-label="House of Bols on Google Maps">Map</a></div>
+          </div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Wynand Fockink</h4>
+          <p class="item__where">Centrum, Pijlsteeg 31</p>
+          <p class="item__tags">jenever tasting, since 1679, tiny</p>
+          <p>A jenever distillery and tasting room down an alley off Dam Square since 1679. You drink standing, the glasses are filled to the brim and you bend down to the first sip.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Wynand+Fockink,+Pijlsteeg+31,+Amsterdam" target="_blank" rel="noopener" aria-label="Wynand Fockink on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">De Drie Fleschjes</h4>
+          <p class="item__where">Centrum, Gravenstraat 18</p>
+          <p class="item__tags">tasting house, jenever, 1620</p>
+          <p>A jenever tasting house behind the Nieuwe Kerk with barrels along the wall. Quieter than Fockink, equally old.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=De+Drie+Fleschjes,+Gravenstraat+18,+Amsterdam" target="_blank" rel="noopener" aria-label="De Drie Fleschjes on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">A’DAM Lookout</h4>
+          <p class="item__where">Noord, Overhoeksplein 5</p>
+          <p class="item__tags">rooftop, swing, 19 min walk</p>
+          <p>Observation deck over the IJ plus ’Over the Edge’, Europe’s highest outdoor swing. The swing is ticketed separately from the roof.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=A&#x27;DAM+Lookout,+Overhoeksplein+5,+Amsterdam" target="_blank" rel="noopener" aria-label="A’DAM Lookout on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Heineken Experience</h4>
+          <p class="item__where">Zuid, Stadhouderskade 78</p>
+          <p class="item__tags">brewery tour, €25, 2 hrs</p>
+          <p>Touristy, and the beer isn’t brewed here any more, but it’s built for groups, includes two beers and needs no planning. Fine filler on a wet afternoon.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Heineken+Experience,+Stadhouderskade+78,+Amsterdam" target="_blank" rel="noopener" aria-label="Heineken Experience on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Holland Casino</h4>
+          <p class="item__where">Centrum, Max Euweplein 62</p>
+          <p class="item__tags">casino, late, ID required</p>
+          <p>The city’s casino on Leidseplein, open late, smart-casual, passport required. A natural end to a Saturday if the bars feel samey.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Holland+Casino,+Max+Euweplein+62,+Amsterdam" target="_blank" rel="noopener" aria-label="Holland Casino on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Johan Cruijff ArenA</h4>
+          <p class="item__where">Zuidoost, Johan Cruijff Boulevard 1</p>
+          <p class="item__tags">stadium tour, metro 50/54, 90 min</p>
+          <p>Stadium tour of Ajax’s ground. Twenty minutes on the metro from Centraal, worth it only if the group follows football.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Johan+Cruijff+ArenA,+Johan+Cruijff+Boulevard+1,+Amsterdam" target="_blank" rel="noopener" aria-label="Johan Cruijff ArenA on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Museums</h3>
+      </div>
+      <ul class="cols2 cols2--lead">
+        <li class="item item--lead">
+          <div class="item__head">
+            <h4 class="item__name">Rijksmuseum</h4>
+            <p class="item__where">Museumplein, Museumstraat 1</p>
+            <p class="item__tags">Vermeer, Rembrandt, book a slot</p>
+          </div>
+          <div class="item__body">
+            <p>The big museum. Timed slot: go early or after 15:00.</p>
+            
+            <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rijksmuseum,+Museumstraat+1,+Amsterdam" target="_blank" rel="noopener" aria-label="Rijksmuseum on Google Maps">Map</a></div>
+          </div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Van Gogh Museum</h4>
+          <p class="item__where">Museumplein, Museumplein 6</p>
+          <p class="item__tags">timed tickets, sells out, 2 hrs</p>
+          <p>Timed-entry only, often gone on the day, book online now.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Van+Gogh+Museum,+Museumplein+6,+Amsterdam" target="_blank" rel="noopener" aria-label="Van Gogh Museum on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Moco Museum</h4>
+          <p class="item__where">Museumplein, Honthorststraat 20</p>
+          <p class="item__tags">Banksy / Warhol, quick, 60-90 min</p>
+          <p>Banksy, Warhol and immersive rooms in a townhouse on Museumplein.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Moco+Museum,+Honthorststraat+20,+Amsterdam" target="_blank" rel="noopener" aria-label="Moco Museum on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Museum Rembrandthuis</h4>
+          <p class="item__where">Centrum, Jodenbreestraat 4</p>
+          <p class="item__tags">Rembrandt’s house, etchings, quiet</p>
+          <p>The actual house Rembrandt lived and worked in, with his etching studio rebuilt. Quieter than the big three.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Museum+Rembrandthuis,+Jodenbreestraat+4,+Amsterdam" target="_blank" rel="noopener" aria-label="Museum Rembrandthuis on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Ons’ Lieve Heer op Solder</h4>
+          <p class="item__where">Centrum, Oudezijds Voorburgwal 40</p>
+          <p class="item__tags">hidden church, 17th century, off-beat</p>
+          <p>A complete Catholic church hidden in a canal-house attic. One of the city’s oddest survivals and usually uncrowded.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ons&#x27;+Lieve+Heer+op+Solder,+Oudezijds+Voorburgwal+40,+Amsterdam" target="_blank" rel="noopener" aria-label="Ons’ Lieve Heer op Solder on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Museum Van Loon</h4>
+          <p class="item__where">Centrum, Keizersgracht 672</p>
+          <p class="item__tags">canal house, garden, 20 minutes</p>
+          <p>A canal house still furnished as a family home. Twenty minutes, and nothing like the big museums.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Museum+Van+Loon,+Keizersgracht+672,+Amsterdam" target="_blank" rel="noopener" aria-label="Museum Van Loon on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Micropia</h4>
+          <p class="item__where">Plantage, Plantage Kerklaan 38-40</p>
+          <p class="item__tags">microbes, indoor, unusual</p>
+          <p>The world’s first microbe museum. Odd, good, and indoors.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Micropia,+Plantage+Kerklaan+38-40,+Amsterdam" target="_blank" rel="noopener" aria-label="Micropia on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Het Scheepvaartmuseum</h4>
+          <p class="item__where">Oostelijke Eilanden, Kattenburgerplein 1</p>
+          <p class="item__tags">maritime, replica ship, indoor</p>
+          <p>National maritime museum in a former naval storehouse, with a moored East Indiaman you can board.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Het+Scheepvaartmuseum,+Kattenburgerplein+1,+Amsterdam" target="_blank" rel="noopener" aria-label="Het Scheepvaartmuseum on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Straat Museum</h4>
+          <p class="item__where">Noord, NDSM-Plein 21</p>
+          <p class="item__tags">street art, 160+ works, warehouse</p>
+          <p>Enormous street-art museum in an NDSM shipyard warehouse. The largest thing to see in Noord, and it is indoors.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=STRAAT+Museum,+NDSM-Plein+21,+Amsterdam" target="_blank" rel="noopener" aria-label="STRAAT Museum on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Sights, markets and walks</h3>
+      </div>
+      <ul class="cols2">
+        <li class="item">
+          <h4 class="item__name">ARTIS</h4>
+          <p class="item__where">Plantage, Plantage Kerklaan 38-40</p>
+          <p class="item__tags">zoo, 19th century, half day</p>
+          <p>The old city zoo, compact, leafy, good if the group wants a slow afternoon rather than another museum.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=ARTIS,+Plantage+Kerklaan+38-40,+Amsterdam" target="_blank" rel="noopener" aria-label="ARTIS on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Free IJ ferry</h4>
+          <p class="item__where">Noord, Behind Centraal, De Ruijterkade</p>
+          <p class="item__tags">free, 24h (F3), 4 min</p>
+          <p>The ferries behind Centraal are free and take four minutes. F2 to IJplein (your stop), F3 to Buiksloterweg (runs all night), F4 to NDSM.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Free+IJ+ferry,+Behind+Centraal,+De+Ruijterkade,+Amsterdam" target="_blank" rel="noopener" aria-label="Free IJ ferry on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Bloemenmarkt</h4>
+          <p class="item__where">Centrum, Singel</p>
+          <p class="item__tags">floating market, 10 min, touristy</p>
+          <p>The floating flower market on the Singel. Ten minutes, then move on, but everyone should see it once.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bloemenmarkt,+Singel,+Amsterdam" target="_blank" rel="noopener" aria-label="Bloemenmarkt on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Vondelpark</h4>
+          <p class="item__where">Zuid, Vondelpark</p>
+          <p class="item__tags">park, walk, free</p>
+          <p>The city’s main park. In late November it’s a brisk walk between museums, not a picnic.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vondelpark,+Vondelpark,+Amsterdam" target="_blank" rel="noopener" aria-label="Vondelpark on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Westergas</h4>
+          <p class="item__where">Westerpark, Pazzanistraat 1</p>
+          <p class="item__tags">former gasworks, galleries, bars</p>
+          <p>The old municipal gasworks turned cultural campus: galleries, Brouwerij Troost, and Café-Restaurant Amsterdam next door.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Westergas,+Pazzanistraat+1,+Amsterdam" target="_blank" rel="noopener" aria-label="Westergas on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Noordermarkt</h4>
+          <p class="item__where">Jordaan, Noordermarkt</p>
+          <p class="item__tags">Saturday, organic, Jordaan</p>
+          <p>Saturday farmers’ and vintage market by the Noorderkerk, five minutes from the Lindengracht market, so do both in one loop.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Noordermarkt,+Noordermarkt,+Amsterdam" target="_blank" rel="noopener" aria-label="Noordermarkt on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="opens rule-thin">
+        <h3>Day trips, if the weather turns</h3>
+      </div>
+      <ul class="cols2">
+        <li class="item">
+          <h4 class="item__name">Zaanse Schans</h4>
+          <p class="item__where">Zaandam, Schansend 7</p>
+          <p class="item__tags">windmills, 20 min by train, day trip</p>
+          <p>Working windmills and workshops 20 minutes by train. Bus 391 needs the regional ticket, the train is easier.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Zaanse+Schans,+Schansend+7,+Amsterdam" target="_blank" rel="noopener" aria-label="Zaanse Schans on Google Maps">Map</a></div>
+        </li>
+        <li class="item">
+          <h4 class="item__name">Haarlem</h4>
+          <p class="item__where">Haarlem, Grote Markt</p>
+          <p class="item__tags">15 min by train, Grote Markt, calmer</p>
+          <p>Fifteen minutes by train and a completely different city: Grote Markt, Teylers Museum, Frans Hals, cheaper lunch.</p>
+          
+          <div class="item__foot"><a href="https://www.google.com/maps/search/?api=1&amp;query=Haarlem,+Grote+Markt,+Amsterdam" target="_blank" rel="noopener" aria-label="Haarlem on Google Maps">Map</a></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="colophon">
+  <div class="container colophon__in">
+    <div>
+      <h2>Amsterdam, 20 to 22 November</h2>
+      <p>Two nights on Motorkade 1, and a free ferry between the hotel and everything else.</p>
+    </div>
+    <div>
+      <p>Compiled 19 November 2026 for travel 20 to 22 November 2026. Transport prices and timetables from the GVB and NS published 2026 fares via amsterdamtips.com and amsterdam-explorer.com, pages updated 16 to 18 November; ferry times from the IJplein and Buiksloterweg timetables. Weather from the Open-Meteo forecast for 52.37N 4.90E, pulled 19 November. Walking times calculated from OpenStreetMap coordinates at 1.3 times the straight line, 80 m a minute, not quoted. Restaurant and bar details from venue sites and local listings checked this week, and hours and menus move, so confirm the same day.</p>
+      <p class="mt-sm">Maps © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, tiles © Esri.</p>
+      <p class="mt-sm"><a href="maps.html">Google Maps setup, seven route links</a><br><a href="amsterdam-places.kml">The KML file for My Maps</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+const MARKS = [{"id": "birdthai", "cat": "eat", "name": "Bird Thai", "area": "Centrum", "addr": "Zeedijk 72-74", "lat": 52.3745881, "lon": 4.9005463}, {"id": "namkee", "cat": "eat", "name": "Nam Kee", "area": "Centrum", "addr": "Zeedijk 111", "lat": 52.3737154, "lon": 4.9003209}, {"id": "bazar", "cat": "eat", "name": "Bazar", "area": "De Pijp", "addr": "Albert Cuypstraat 182", "lat": 52.3558515, "lon": 4.8950212}, {"id": "cradam", "cat": "eat", "name": "Café-Restaurant Amsterdam", "area": "Westerpark", "addr": "Watertorenplein 6", "lat": 52.3842205, "lon": 4.8682145}, {"id": "gossler", "cat": "eat", "name": "Gossler & Florin", "area": "Jordaan", "addr": "Lindengracht 90", "lat": 52.3805171, "lon": 4.8856647}, {"id": "detros", "cat": "eat", "name": "De Tros", "area": "Oost", "addr": "Linnaeusstraat 63H", "lat": 52.3604602, "lon": 4.9254084}, {"id": "wijmpje", "cat": "eat", "name": "Wijmpje Beukers", "area": "De Pijp", "addr": "Karel du Jardinstraat 47", "lat": 52.3515264, "lon": 4.8954325}, {"id": "binnenvisser", "cat": "eat", "name": "Café Binnenvisser", "area": "Oud-West", "addr": "Bilderdijkstraat 36", "lat": 52.3715214, "lon": 4.8704042}, {"id": "pepito", "cat": "eat", "name": "Pepito", "area": "Oud-West", "addr": "Eerste Constantijn Huygensstraat 21", "lat": 52.3647258, "lon": 4.8742569}, {"id": "smaaQt", "cat": "eat", "name": "SmaaQt", "area": "Noord", "addr": "Van der Pekstraat 79", "lat": 52.3893748, "lon": 4.9097707}, {"id": "pecorino", "cat": "eat", "name": "Il Pecorino", "area": "Noord", "addr": "Van der Pekplein 11", "lat": 52.3868092, "lon": 4.90866}, {"id": "spaghetteria", "cat": "eat", "name": "Spaghetteria", "area": "Centrum", "addr": "Haarlemmerstraat", "lat": 52.3562137, "lon": 4.89175}, {"id": "waaghals", "cat": "veg", "name": "De Waaghals", "area": "De Pijp", "addr": "Frans Halsstraat 29", "lat": 52.3571488, "lon": 4.8889801}, {"id": "goldentemple", "cat": "veg", "name": "Golden Temple", "area": "Centrum", "addr": "Utrechtsestraat 126", "lat": 52.3613524, "lon": 4.8991354}, {"id": "meatless", "cat": "veg", "name": "Meatless District", "area": "Oud-West", "addr": "Bilderdijkstraat 65-67", "lat": 52.3700576, "lon": 4.8707153}, {"id": "flore", "cat": "veg", "name": "Flore", "area": "Oost", "addr": "Weesperzijde 135", "lat": 52.3495777, "lon": 4.9126835}, {"id": "beurre", "cat": "veg", "name": "Café Beurre", "area": "Staatsliedenbuurt", "addr": "Van Limburg Stirumstraat 115", "lat": 52.3837972, "lon": 4.876298}, {"id": "neni", "cat": "veg", "name": "NENI Amsterdam", "area": "Westerpark", "addr": "Haarlemmerweg 10", "lat": 52.3867529, "lon": 4.8752625}, {"id": "laperla", "cat": "it", "name": "La Perla", "area": "Jordaan", "addr": "Tweede Tuindwarsstraat 53", "lat": 52.3770629, "lon": 4.8819858}, {"id": "nnea", "cat": "it", "name": "nNea Pizza", "area": "Oud-West", "addr": "Bilderdijkstraat 92", "lat": 52.3694421, "lon": 4.8703926}, {"id": "pazzi", "cat": "it", "name": "Pazzi Jordaan", "area": "Jordaan", "addr": "Eerste Looiersdwarsstraat 4", "lat": 52.3692832, "lon": 4.880738}, {"id": "mangia", "cat": "it", "name": "Mangia Pizza & Wine", "area": "Centrum", "addr": "Vijzelgracht 33", "lat": 52.3609867, "lon": 4.8916067}, {"id": "renatos", "cat": "it", "name": "Renato's Pizzeria", "area": "De Pijp", "addr": "Karel du Jardinstraat 32", "lat": 52.3512116, "lon": 4.8944778}, {"id": "bellastoria", "cat": "it", "name": "Bella Storia", "area": "Westerpark", "addr": "Bentinckstraat 26", "lat": 52.383797, "lon": 4.8741386}, {"id": "sonny", "cat": "take", "name": "Sonny Falafel", "area": "De Pijp", "addr": "Eerste van der Helststraat 43", "lat": 52.3552977, "lon": 4.8933598}, {"id": "sajeria", "cat": "take", "name": "The Lebanese Sajeria", "area": "Centrum", "addr": "Utrechtsestraat 69", "lat": 52.3633993, "lon": 4.8985843}, {"id": "vjfb", "cat": "take", "name": "Vegan Junk Food Bar", "area": "Centrum", "addr": "Leidsegracht 34", "lat": 52.3668532, "lon": 4.8841721}, {"id": "foodhallen", "cat": "take", "name": "Foodhallen", "area": "Oud-West", "addr": "Bellamyplein 51", "lat": 52.3668273, "lon": 4.8683326}, {"id": "albertcuyp", "cat": "take", "name": "Albert Cuyp Markt", "area": "De Pijp", "addr": "Albert Cuypstraat", "lat": 52.3546238, "lon": 4.8876759}, {"id": "vanderpekmarkt", "cat": "take", "name": "Van der Pekmarkt", "area": "Noord", "addr": "Van der Pekstraat", "lat": 52.3887932, "lon": 4.9097423}, {"id": "dapper", "cat": "take", "name": "Dappermarkt", "area": "Oost", "addr": "Dapperstraat", "lat": 52.3618402, "lon": 4.9280089}, {"id": "oedipus", "cat": "beer", "name": "Oedipus Taproom", "area": "Noord", "addr": "Schaafstraat 21", "lat": 52.3852252, "lon": 4.9236797}, {"id": "tij", "cat": "beer", "name": "Brouwerij 't IJ", "area": "Oost", "addr": "Funenkade 7", "lat": 52.3666977, "lon": 4.9263471}, {"id": "wildeman", "cat": "beer", "name": "In de Wildeman", "area": "Centrum", "addr": "Kolksteeg 3", "lat": 52.3761636, "lon": 4.8951567}, {"id": "arendsnest", "cat": "beer", "name": "Proeflokaal Arendsnest", "area": "Centrum", "addr": "Herengracht 90", "lat": 52.3767095, "lon": 4.8892599}, {"id": "prael", "cat": "beer", "name": "Brouwerij De Prael", "area": "Centrum", "addr": "Oudezijds Armsteeg 26", "lat": 52.375572, "lon": 4.8993901}, {"id": "troostwest", "cat": "beer", "name": "Brouwerij Troost Westergas", "area": "Westerpark", "addr": "Pazzanistraat 27", "lat": 52.3860888, "lon": 4.8728161}, {"id": "poesiat", "cat": "beer", "name": "Poesiat & Kater", "area": "Oost", "addr": "Polderweg 648", "lat": 52.3576508, "lon": 4.9357132}, {"id": "beertemple", "cat": "beer", "name": "BeerTemple", "area": "Centrum", "addr": "Nieuwezijds Voorburgwal 250", "lat": 52.3719783, "lon": 4.8903561}, {"id": "door74", "cat": "cocktail", "name": "Door 74", "area": "Rembrandtplein", "addr": "Reguliersdwarsstraat 74", "lat": 52.365938, "lon": 4.8935926}, {"id": "tales", "cat": "cocktail", "name": "Tales & Spirits", "area": "Centrum", "addr": "Lijnbaanssteeg 5-7", "lat": 52.3760977, "lon": 4.8917919}, {"id": "oldenhof", "cat": "cocktail", "name": "Bar Oldenhof", "area": "Jordaan", "addr": "Elandsgracht 84-H", "lat": 52.3696587, "lon": 4.8802785}, {"id": "vesper", "cat": "cocktail", "name": "Vesper Bar", "area": "Jordaan", "addr": "Vinkenstraat 57", "lat": 52.3821708, "lon": 4.8869065}, {"id": "superlyan", "cat": "cocktail", "name": "Super Lyan", "area": "Centrum", "addr": "Nieuwezijds Voorburgwal 3", "lat": 52.3708232, "lon": 4.8899415}, {"id": "flyingdutch", "cat": "cocktail", "name": "Flying Dutchmen Cocktails", "area": "Centrum", "addr": "Singel 460", "lat": 52.3675498, "lon": 4.8888202}, {"id": "cafechris", "cat": "brown", "name": "Cafe Chris", "area": "Jordaan", "addr": "Bloemstraat 42", "lat": 52.374266, "lon": 4.8815769}, {"id": "smalle", "cat": "brown", "name": "Cafe 't Smalle", "area": "Jordaan", "addr": "Egelantiersgracht 12", "lat": 52.3767305, "lon": 4.8841335}, {"id": "hoppe", "cat": "brown", "name": "Cafe Hoppe", "area": "Centrum", "addr": "Spui 18-20", "lat": 52.3687949, "lon": 4.8885771}, {"id": "wetering", "cat": "brown", "name": "Cafe de Wetering", "area": "Centrum", "addr": "Weteringstraat 37", "lat": 52.3609357, "lon": 4.889715}, {"id": "oranjerie", "cat": "brown", "name": "Cafe De Oranjerie", "area": "Jordaan", "addr": "Binnen Oranjestraat 15", "lat": 52.3819606, "lon": 4.8868708}, {"id": "oosterling", "cat": "brown", "name": "Cafe Slijterij Oosterling", "area": "Centrum", "addr": "Utrechtsestraat 140", "lat": 52.3610743, "lon": 4.8992559}, {"id": "ceuvel", "cat": "brown", "name": "Cafe de Ceuvel", "area": "Noord", "addr": "Korte Papaverweg 4", "lat": 52.393151, "lon": 4.9107584}, {"id": "pllek", "cat": "brown", "name": "Pllek", "area": "Noord", "addr": "Tt Neveritaweg 59", "lat": 52.3991339, "lon": 4.8930985}, {"id": "hotel", "cat": "hotel", "name": "Holiday Inn Express North Riverside", "area": "Noord", "addr": "Motorkade 1", "lat": 52.3841773, "lon": 4.919575}, {"id": "rijksmuseum", "cat": "museum", "name": "Rijksmuseum", "area": "Museumplein", "addr": "Museumstraat 1", "lat": 52.3596632, "lon": 4.8842791}, {"id": "vangogh", "cat": "museum", "name": "Van Gogh Museum", "area": "Museumplein", "addr": "Museumplein 6", "lat": 52.3579248, "lon": 4.8813227}, {"id": "moco", "cat": "museum", "name": "Moco Museum", "area": "Museumplein", "addr": "Honthorststraat 20", "lat": 52.3587165, "lon": 4.8819619}, {"id": "rembrandthuis", "cat": "museum", "name": "Museum Rembrandthuis", "area": "Centrum", "addr": "Jodenbreestraat 4", "lat": 52.3693692, "lon": 4.9012497}, {"id": "solder", "cat": "museum", "name": "Ons' Lieve Heer op Solder", "area": "Centrum", "addr": "Oudezijds Voorburgwal 40", "lat": 52.3750957, "lon": 4.8992904}, {"id": "vanloon", "cat": "museum", "name": "Museum Van Loon", "area": "Centrum", "addr": "Keizersgracht 672", "lat": 52.363464, "lon": 4.8933781}, {"id": "micropia", "cat": "museum", "name": "Micropia", "area": "Plantage", "addr": "Plantage Kerklaan 38-40", "lat": 52.3669615, "lon": 4.9125816}, {"id": "scheepvaart", "cat": "museum", "name": "Het Scheepvaartmuseum", "area": "Oostelijke Eilanden", "addr": "Kattenburgerplein 1", "lat": 52.372005, "lon": 4.9149527}, {"id": "straat", "cat": "museum", "name": "STRAAT Museum", "area": "Noord", "addr": "NDSM-Plein 21", "lat": 52.4011142, "lon": 4.89545}, {"id": "artis", "cat": "sight", "name": "ARTIS", "area": "Plantage", "addr": "Plantage Kerklaan 38-40", "lat": 52.3669615, "lon": 4.9125816}, {"id": "bols", "cat": "exp", "name": "House of Bols", "area": "Museumplein", "addr": "Paulus Potterstraat 14", "lat": 52.3590426, "lon": 4.8812819}, {"id": "fockink", "cat": "exp", "name": "Wynand Fockink", "area": "Centrum", "addr": "Pijlsteeg 31", "lat": 52.3723195, "lon": 4.8952995}, {"id": "fleschjes", "cat": "exp", "name": "De Drie Fleschjes", "area": "Centrum", "addr": "Gravenstraat 18", "lat": 52.3743114, "lon": 4.8923128}, {"id": "adamlookout", "cat": "exp", "name": "A'DAM Lookout", "area": "Noord", "addr": "Overhoeksplein 5", "lat": 52.3837725, "lon": 4.9021378}, {"id": "heineken", "cat": "exp", "name": "Heineken Experience", "area": "Zuid", "addr": "Stadhouderskade 78", "lat": 52.3578404, "lon": 4.891784}, {"id": "casino", "cat": "exp", "name": "Holland Casino", "area": "Centrum", "addr": "Max Euweplein 62", "lat": 52.3623271, "lon": 4.8821939}, {"id": "arena", "cat": "exp", "name": "Johan Cruijff ArenA", "area": "Zuidoost", "addr": "Johan Cruijff Boulevard 1", "lat": 52.314353, "lon": 4.9428431}, {"id": "ferry", "cat": "sight", "name": "Free IJ ferry (NDSM)", "area": "Centrum", "addr": "De Ruijterkade", "lat": 52.4010835, "lon": 4.8934078}, {"id": "bloemenmarkt", "cat": "sight", "name": "Bloemenmarkt", "area": "Centrum", "addr": "Singel", "lat": 52.3669308, "lon": 4.8907645}, {"id": "vondelpark", "cat": "sight", "name": "Vondelpark", "area": "Zuid", "addr": "Vondelpark", "lat": 52.3571974, "lon": 4.864119}, {"id": "westergas", "cat": "sight", "name": "Westergas", "area": "Westerpark", "addr": "Pazzanistraat 1", "lat": 52.386145, "lon": 4.8753523}, {"id": "noordermarkt", "cat": "sight", "name": "Noordermarkt (Sat)", "area": "Jordaan", "addr": "Noordermarkt", "lat": 52.3799538, "lon": 4.8868719}, {"id": "zaanse", "cat": "trip", "name": "Zaanse Schans", "area": "Zaandam", "addr": "Schansend 7", "lat": 52.4750534, "lon": 4.8179761}, {"id": "haarlem", "cat": "trip", "name": "Haarlem", "area": "Haarlem", "addr": "Grote Markt", "lat": 52.3813667, "lon": 4.6360934}];
+const BASE = [{"id": "hotel", "cat": "hotel", "name": "Holiday Inn Express North Riverside", "area": "Noord", "addr": "Motorkade 1", "lat": 52.3841773, "lon": 4.919575}, {"id": "ijplein", "cat": "ferry", "name": "IJplein ferry (F2)", "area": "Noord", "addr": "IJplein", "lat": 52.3822483, "lon": 4.9120782}, {"id": "buiksloter", "cat": "ferry", "name": "Buiksloterweg ferry (F3)", "area": "Noord", "addr": "Buiksloterweg", "lat": 52.384153, "lon": 4.907884}, {"id": "hamerstraat", "cat": "bus", "name": "Hamerstraat bus stop", "area": "Noord", "addr": "Hamerstraat", "lat": 52.3845463, "lon": 4.9223294}, {"id": "noorderpark", "cat": "metro", "name": "Noorderpark metro (M52)", "area": "Noord", "addr": "Noorderpark", "lat": 52.3945873, "lon": 4.9195035}, {"id": "centraal", "cat": "train", "name": "Amsterdam Centraal", "area": "Centrum", "addr": "Stationsplein", "lat": 52.378901, "lon": 4.9005805}, {"id": "ferry", "cat": "ferry", "name": "Free IJ ferry (NDSM)", "area": "Centrum", "addr": "De Ruijterkade", "lat": 52.4010835, "lon": 4.8934078}];
+const NOORD = [{"id": "smaaQt", "cat": "eat", "name": "SmaaQt", "area": "Noord", "addr": "Van der Pekstraat 79", "lat": 52.3893748, "lon": 4.9097707}, {"id": "pecorino", "cat": "eat", "name": "Il Pecorino", "area": "Noord", "addr": "Van der Pekplein 11", "lat": 52.3868092, "lon": 4.90866}, {"id": "vanderpekmarkt", "cat": "take", "name": "Van der Pekmarkt", "area": "Noord", "addr": "Van der Pekstraat", "lat": 52.3887932, "lon": 4.9097423}, {"id": "oedipus", "cat": "beer", "name": "Oedipus Taproom", "area": "Noord", "addr": "Schaafstraat 21", "lat": 52.3852252, "lon": 4.9236797}, {"id": "ceuvel", "cat": "brown", "name": "Cafe de Ceuvel", "area": "Noord", "addr": "Korte Papaverweg 4", "lat": 52.393151, "lon": 4.9107584}, {"id": "pllek", "cat": "brown", "name": "Pllek", "area": "Noord", "addr": "Tt Neveritaweg 59", "lat": 52.3991339, "lon": 4.8930985}, {"id": "hotel", "cat": "hotel", "name": "Holiday Inn Express North Riverside", "area": "Noord", "addr": "Motorkade 1", "lat": 52.3841773, "lon": 4.919575}, {"id": "straat", "cat": "museum", "name": "STRAAT Museum", "area": "Noord", "addr": "NDSM-Plein 21", "lat": 52.4011142, "lon": 4.89545}, {"id": "adamlookout", "cat": "exp", "name": "A'DAM Lookout", "area": "Noord", "addr": "Overhoeksplein 5", "lat": 52.3837725, "lon": 4.9021378}];
+const KEY = {eat:'R',veg:'V',it:'I',take:'T',beer:'B',cocktail:'C',brown:'K',museum:'M',exp:'X',sight:'S',trip:'D',hotel:'H',ferry:'F',bus:'U',metro:'N',train:'G'};
+const root = getComputedStyle(document.documentElement);
+const C = n => root.getPropertyValue(n).trim();
+
+function tiles() {
+  return L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles \u00a9 Esri, HERE and OpenStreetMap contributors', maxZoom: 16
+  });
+}
+function icon(m, big) {
+  const k = KEY[m.cat] || 'P';
+  return L.divIcon({
+    className: '', iconSize: [44, 44], iconAnchor: [22, big ? 34 : 28], popupAnchor: [0, big ? -28 : -22],
+    html: '<div class="pin-wrap"><div class="pin' + (m.cat === 'hotel' ? ' pin--hotel' : '') + '" data-k="' + k + '"></div></div>'
+  });
+}
+function popup(m) {
+  const sub = [m.area, m.addr].filter(Boolean).join(', ');
+  return '<b>' + m.name + '</b><span class="a">' + sub + '</span>' +
+    '<a class="a" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' +
+    encodeURIComponent(m.name + ', Amsterdam') + '">Google Maps</a>';
+}
+function pin(m, big) {
+  return L.marker([m.lat, m.lon], {
+    icon: icon(m, big), title: m.name, alt: m.name, keyboard: true, riseOnHover: true,
+    zIndexOffset: m.cat === 'hotel' ? 1000 : 0
+  }).bindPopup(popup(m));
+}
+function clusterGroup() {
+  return L.markerClusterGroup({
+    showCoverageOnHover: false, spiderfyOnMaxZoom: true, maxClusterRadius: 36, disableClusteringAtZoom: 17,
+    iconCreateFunction: (c) => L.divIcon({ className: '', iconSize: [44, 44], html: '<div class="cluster" data-n="' + c.getChildCount() + '"></div>' })
+  });
+}
+
+const map = L.map('map', { scrollWheelZoom: true });
+tiles().addTo(map);
+const groups = {};
+for (const k in KEY) { groups[k] = clusterGroup(); map.addLayer(groups[k]); }
+for (const m of MARKS) pin(m, m.cat === 'hotel').addTo(groups[m.cat] || groups.sight);
+const core = MARKS.filter(m => m.lat > 52.351 && m.lat < 52.394 && m.lon > 4.862 && m.lon < 4.935);
+map.fitBounds((core.length ? core : MARKS).map(m => [m.lat, m.lon]), { padding: [28, 28] });
+setTimeout(() => map.invalidateSize(), 250);
+
+document.querySelectorAll('.lg input').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const k = cb.dataset.cat;
+    if (!groups[k]) return;
+    if (cb.checked) map.addLayer(groups[k]); else map.removeLayer(groups[k]);
+    cb.closest('.lg').classList.toggle('off', !cb.checked);
+  });
+});
+
+(function baseMap() {
+  const el = document.getElementById('base-map');
+  if (!el) return;
+  const bm = L.map('base-map', { scrollWheelZoom: false });
+  tiles().addTo(bm);
+  const by = {};
+  for (const m of BASE) { by[m.id] = m; pin(m, m.id === 'hotel').addTo(bm); }
+  const hotel = by['hotel'], F2 = by['ijplein'], F3 = by['buiksloter'], BUS = by['hamerstraat'], CEN = by['centraal'];
+  const ink = C('--color-ink'), accent = C('--color-accent'), muted = C('--color-rule-2');
+  function line(a, b, colour, dash, label) {
+    if (!a || !b) return;
+    const l = L.polyline([[a.lat, a.lon], [b.lat, b.lon]], { color: colour, weight: 2, opacity: 0.85, dashArray: dash }).addTo(bm);
+    if (label) l.bindTooltip(label, { permanent: false, sticky: true });
+  }
+  if (hotel && F2 && CEN) {
+    line(hotel, F2, ink, null, '9 min walk to the IJplein ferry');
+    line(F2, CEN, accent, '6 6', 'Ferry F2, 4 min, every 6 min, until 23:50');
+  }
+  if (hotel && F3) line(hotel, F3, muted, '2 5', '13 min walk, F3 runs all night');
+  if (hotel && BUS && CEN) {
+    line(hotel, BUS, muted, null, '3 min walk to Hamerstraat');
+    line(BUS, CEN, muted, '10 5', 'Buses 34, 35 and 38 through the IJ tunnel');
+  }
+  bm.fitBounds(hotel && CEN ? [[hotel.lat, hotel.lon], [CEN.lat, CEN.lon]] : BASE.map(m => [m.lat, m.lon]), { padding: [40, 40] });
+  setTimeout(() => bm.invalidateSize(), 250);
+})();
+
+(function noordMap() {
+  const el = document.getElementById('noord-map');
+  if (!el || !NOORD.length) return;
+  const nm = L.map('noord-map', { scrollWheelZoom: false });
+  tiles().addTo(nm);
+  for (const m of NOORD) pin(m, m.cat === 'hotel').addTo(nm);
+  nm.fitBounds(NOORD.map(m => [m.lat, m.lon]), { padding: [45, 45] });
+  setTimeout(() => nm.invalidateSize(), 250);
+})();
+
+document.querySelectorAll('button.spk').forEach(b => {
+  b.addEventListener('click', () => {
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(b.dataset.t);
+      u.lang = 'nl-NL'; u.rate = 0.9;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>
